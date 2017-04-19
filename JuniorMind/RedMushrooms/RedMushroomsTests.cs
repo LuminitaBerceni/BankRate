@@ -15,7 +15,7 @@ namespace RedMushrooms
 
         int CalculateNumberOfRedMushrooms(int totalNumberOfMushrooms, int multiplierOfRedMushrooms)
         {
-            return 0;
+            return multiplierOfRedMushrooms * totalNumberOfMushrooms / (multiplierOfRedMushrooms + 1);
         }
     }
 }
