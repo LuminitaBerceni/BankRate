@@ -15,7 +15,7 @@ namespace RepetitionsPerformedBySportsman
 
         int CalculateRepetitionsPerformedBySportsman(int numberOfRoundAndRepetitions)
         {
-            return 0;
+            return numberOfRoundAndRepetitions * numberOfRoundAndRepetitions;
         }
     }
 }
