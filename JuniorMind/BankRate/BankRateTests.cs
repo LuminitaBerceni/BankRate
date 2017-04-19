@@ -11,12 +11,12 @@ namespace BankRate
 
         {
             decimal rate = CalculateBankRate(200, 2, 12, 1);
-            Assert.AreEqual(102, rate)
+            Assert.AreEqual(102 , rate);
         }
 
         decimal CalculateBankRate(decimal total, int periodInMonths, decimal interestPerYear, int currentMonth)
         {
-            return 0;
+            return total / periodInMonths + total * interestPerYear / 12 / 100;
 
         }
     }
