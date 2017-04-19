@@ -13,6 +13,13 @@ namespace RepetitionsPerformedBySportsman
             Assert.AreEqual(4, repetitions);
         }
 
+        [TestMethod]
+        public void RepetitionsForSixRounds()
+        {
+            int repetitions = CalculateRepetitionsPerformedBySportsman(6);
+            Assert.AreEqual(36, repetitions);
+        }
+
         int CalculateRepetitionsPerformedBySportsman(int numberOfRoundAndRepetitions)
         {
             return numberOfRoundAndRepetitions * numberOfRoundAndRepetitions;
