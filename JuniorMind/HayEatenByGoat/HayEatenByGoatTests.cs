@@ -13,6 +13,13 @@ namespace HayEatenByGoat
             Assert.AreEqual( 50, kilogramsOfHay);
         }
 
+        [TestMethod]
+        public void HayForTenGoatsInSevenDays()
+        {
+            float kilogramsOfHay = CalculateHayEatenByGoat(5, 3, 105, 10, 7);
+            Assert.AreEqual(490, kilogramsOfHay);
+        }
+
         float CalculateHayEatenByGoat(int initialNumberOfGoats, int initialNumberOfDays, float initialKilogramsOfHay, int numberOfGoats, int numberOfDays)
         {
             return (numberOfGoats * numberOfDays * initialKilogramsOfHay) / (initialNumberOfGoats * initialNumberOfDays);
