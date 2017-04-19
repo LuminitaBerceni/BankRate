@@ -13,6 +13,13 @@ namespace RedMushrooms
             Assert.AreEqual(2, redMushrooms);
         }
 
+        [TestMethod]
+        public void TenMushrooms()
+        {
+            int redMushrooms = CalculateNumberOfRedMushrooms(10, 4);
+            Assert.AreEqual(8, redMushrooms);
+        }
+
         int CalculateNumberOfRedMushrooms(int totalNumberOfMushrooms, int multiplierOfRedMushrooms)
         {
             return multiplierOfRedMushrooms * totalNumberOfMushrooms / (multiplierOfRedMushrooms + 1);
