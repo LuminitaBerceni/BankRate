@@ -13,6 +13,13 @@ namespace CubicalStone
             Assert.AreEqual(4, cubicalStone);
         }
 
+        [TestMethod]
+        public void CubicalStoneFor8x4Square()
+        {
+            int cubicalStone = CalculateCubicalStone(8, 4, 3);
+            Assert.AreEqual(6, cubicalStone);
+        }
+
         int CalculateCubicalStone(int squareLenght, int squareWidth, int cubicalStoneSide)
         {
             int cubicalStoneForLehght = squareLenght / cubicalStoneSide;
