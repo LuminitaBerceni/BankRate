@@ -15,7 +15,17 @@ namespace CubicalStone
 
         int CalculateCubicalStone(int squareLenght, int squareWidth, int cubicalStoneSide)
         {
-            return 0;
+            int cubicalStoneForLehght = squareLenght / cubicalStoneSide;
+
+            if (squareLenght % cubicalStoneSide != 0)
+                cubicalStoneForLehght = cubicalStoneForLehght + 1;
+
+            int cubicalStoneForWidth = squareWidth / cubicalStoneSide;
+
+            if (squareWidth % cubicalStoneSide != 0)
+                cubicalStoneForWidth = cubicalStoneForWidth + 1;
+                
+            return cubicalStoneForLehght * cubicalStoneForWidth;
         }
     }
 }
