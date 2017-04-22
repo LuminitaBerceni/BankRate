@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepetitionsPerformedBySport
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubicalStone", "CubicalStone\CubicalStone.csproj", "{BCCF9EDF-2188-480A-A1C6-8A213FE5F2D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parquet", "Parquet\Parquet.csproj", "{5446374C-E108-467A-B832-8A1C7DB7078A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{BCCF9EDF-2188-480A-A1C6-8A213FE5F2D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCCF9EDF-2188-480A-A1C6-8A213FE5F2D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCCF9EDF-2188-480A-A1C6-8A213FE5F2D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5446374C-E108-467A-B832-8A1C7DB7078A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5446374C-E108-467A-B832-8A1C7DB7078A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5446374C-E108-467A-B832-8A1C7DB7078A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5446374C-E108-467A-B832-8A1C7DB7078A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
