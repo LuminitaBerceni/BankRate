@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+
+
 namespace MinimumArea
 {
     [TestClass]
@@ -13,10 +15,19 @@ namespace MinimumArea
             Assert.AreEqual(3,area);
         }
 
-        float CalculateMinimumArea(float columnOneX, float columnOneY, float columnTwoX, float columnTwoY, float columnThreeX, float columnThreeY )
+        [TestMethod]
+        public void CalculateMinimumArea2()
         {
+            float area = CalculateMinimumArea(1, 2, -1, -1, 3, 1);
+            Assert.AreEqual(4, area);
+        }
+
+        float CalculateMinimumArea(float columnOneX, float columnOneY, float columnTwoX, float columnTwoY, float columnThreeX, float columnThreeY)
+        {
+
             float determinant = columnOneX * columnTwoY + columnTwoX * columnThreeY + columnOneY * columnThreeX - columnTwoY * columnThreeX - columnOneY * columnTwoX - columnOneX * columnThreeY;
             return Math.Abs(determinant) / 2;
         }
+
     }
 }
