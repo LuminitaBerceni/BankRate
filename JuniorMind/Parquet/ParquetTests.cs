@@ -15,7 +15,9 @@ namespace Parquet
 
         double CalculateNrParquet(double roomWidth, double roomLenght, double parquetWidth, double parquetLenght)
         {
-            return 0;
+            double parquetPieces = (roomWidth * roomLenght)/(parquetWidth*parquetLenght);
+            double parquetLoss = 0.15 * Math.Ceiling(parquetPieces);
+            return Math.Ceiling(parquetPieces + parquetLoss);
         }
     }
 }
