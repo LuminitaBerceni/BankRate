@@ -9,20 +9,30 @@ namespace CubicalStone
         [TestMethod]
         public void CubicalStoneFor6x6Square()
         {
-            double cubicalStone = CalculateCubicalStone(6, 6, 4);
+            int cubicalStone = CalculateCubicalStone(6, 6, 4);
             Assert.AreEqual(4, cubicalStone);
         }
 
         [TestMethod]
         public void CubicalStoneFor8x4Square()
         {
-            double cubicalStone = CalculateCubicalStone(8, 4, 3);
+            int cubicalStone = CalculateCubicalStone(8, 4, 3);
             Assert.AreEqual(6, cubicalStone);
         }
 
-        double CalculateCubicalStone(double squareLenght, double squareWidth, int cubicalStoneSide)
-        {    
-            return Math.Ceiling(squareLenght/cubicalStoneSide) * Math.Ceiling(squareWidth / cubicalStoneSide);
+        int CalculateCubicalStone(int squareLenght, int squareWidth, int cubicalStoneSide)
+        {
+            int cubicalStoneForLehght = squareLenght / cubicalStoneSide;
+
+            if (squareLenght % cubicalStoneSide != 0)
+                cubicalStoneForLehght = cubicalStoneForLehght + 1;
+
+            int cubicalStoneForWidth = squareWidth / cubicalStoneSide;
+
+            if (squareWidth % cubicalStoneSide != 0)
+                cubicalStoneForWidth = cubicalStoneForWidth + 1;
+                
+            return cubicalStoneForLehght * cubicalStoneForWidth;
         }
     }
 }
