@@ -15,7 +15,8 @@ namespace MinimumArea
 
         float CalculateMinimumArea(float columnOneX, float columnOneY, float columnTwoX, float columnTwoY, float columnThreeX, float columnThreeY )
         {
-            return 0;
+            float determinant = columnOneX * columnTwoY + columnTwoX * columnThreeY + columnOneY * columnThreeX - columnTwoY * columnThreeX - columnOneY * columnTwoX - columnOneX * columnThreeY;
+            return Math.Abs(determinant) / 2;
         }
     }
 }
