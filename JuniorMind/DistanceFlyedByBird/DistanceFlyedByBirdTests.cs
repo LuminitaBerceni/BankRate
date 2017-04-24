@@ -15,7 +15,10 @@ namespace DistanceFlyedByBird
 
         int CalculateDistanceFlyedByBird(int initialDistance, int trainSpeed)
         {
-            return 0;
+            int remainingDistance = initialDistance / 2;
+            int birdSpeed = trainSpeed * 2;
+            int time = remainingDistance / (trainSpeed * 2);
+            return time * birdSpeed;
         }
     }
 }
