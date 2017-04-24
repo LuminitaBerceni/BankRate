@@ -9,16 +9,23 @@ namespace DistanceFlyedByBird
         [TestMethod]
         public void DistanceFor30Speed()
         {
-            int distance = CalculateDistanceFlyedByBird(120,30);
+            float distance = CalculateDistanceFlyedByBird(120,30);
             Assert.AreEqual(60,distance);
         }
 
-        int CalculateDistanceFlyedByBird(int initialDistance, int trainSpeed)
+        [TestMethod]
+        public void DistanceFor50Speed()
+        {
+            float distance = CalculateDistanceFlyedByBird(100, 50);
+            Assert.AreEqual(50, distance);
+        }
+
+        float CalculateDistanceFlyedByBird(int initialDistance, int trainSpeed)
         {
             int remainingDistance = initialDistance / 2;
             int birdSpeed = trainSpeed * 2;
-            int time = remainingDistance / (trainSpeed * 2);
-            return time * birdSpeed;
+            float time = (float)remainingDistance / (trainSpeed * 2);
+            return time * birdSpeed ;
         }
     }
 }
