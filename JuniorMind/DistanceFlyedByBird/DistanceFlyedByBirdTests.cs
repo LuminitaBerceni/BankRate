@@ -7,8 +7,15 @@ namespace DistanceFlyedByBird
     public class DistanceFlyedByBirdTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void DistanceFor30Speed()
         {
+            int distance = CalculateDistanceFlyedByBird(120,30);
+            Assert.AreEqual(60,distance);
+        }
+
+        int CalculateDistanceFlyedByBird(int initialDistance, int trainSpeed)
+        {
+            return 0;
         }
     }
 }

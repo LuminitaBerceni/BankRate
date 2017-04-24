@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parquet", "Parquet\Parquet.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimumArea", "MinimumArea\MinimumArea.csproj", "{28122E42-D9A5-444B-84F0-4A29782D29FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceFlyedByBird", "DistanceFlyedByBird\DistanceFlyedByBird.csproj", "{66D44F8B-B2C4-45B9-A63E-5F21B5449D5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{28122E42-D9A5-444B-84F0-4A29782D29FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28122E42-D9A5-444B-84F0-4A29782D29FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28122E42-D9A5-444B-84F0-4A29782D29FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D44F8B-B2C4-45B9-A63E-5F21B5449D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D44F8B-B2C4-45B9-A63E-5F21B5449D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D44F8B-B2C4-45B9-A63E-5F21B5449D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D44F8B-B2C4-45B9-A63E-5F21B5449D5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
