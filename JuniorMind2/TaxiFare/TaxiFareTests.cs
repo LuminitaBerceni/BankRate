@@ -7,14 +7,14 @@ namespace TaxiFare
     public class TaxiFareTests
     {
         [TestMethod]
-        public void DaytimeFareForShortDstances()
+        public void DaytimeFareForShortDistances()
         {
             Assert.AreEqual(5, CalculateTaxiFare(1, 8));
         }
 
         decimal CalculateTaxiFare(int distanceInKm, int hour)
         {
-            return 0;
+            return distanceInKm * 5;
         }
     }
 }
