@@ -20,12 +20,21 @@ namespace FizzBuzz
             Assert.AreEqual("Buzz", textForMultipleOfFive);
         }
 
+        [TestMethod]
+        public void TextIfIsMultipleOfThreeAndFive()
+        {
+            string textForMultipleOfThreeAndFive = DisplayTextIfIsMultiple(15);
+            Assert.AreEqual("FizzBuzz", textForMultipleOfThreeAndFive);
+        }
+
         string DisplayTextIfIsMultiple (int number)
         {
+            if ((number % 3 == 0) && (number % 5 == 0))
+                return "FizzBuzz";
             if (number % 3 == 0)
                 return "Fizz";
             if (number % 5 == 0)
-                return "Buzz";
+                return "Buzz";  
             return "It's not a multiple of 3 !";
             
         }
