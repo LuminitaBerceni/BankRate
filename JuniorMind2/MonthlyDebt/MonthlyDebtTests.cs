@@ -32,12 +32,17 @@ namespace MonthlyDebt
 
         private static decimal GetPenaltyPerDay(int delayDays)
         {
-            int[] penaltyRate = { 2, 5, 10 };
+            int [] penaltyRate = { 2, 5, 10 };
             if (delayDays < 10)
-                return (decimal) penaltyRate [0] / 100;
+                return GetPercent(penaltyRate[0]);
             if (delayDays > 10 && delayDays < 30)
-                return (decimal) penaltyRate [1] / 100;
-            return (decimal) penaltyRate [2] / 100;
+                return GetPercent(penaltyRate[1]);
+            return GetPercent(penaltyRate[2]);
+        }
+
+        private static decimal GetPercent(int rate)
+        {
+            return (decimal) rate / 100;
         }
     }
 }
