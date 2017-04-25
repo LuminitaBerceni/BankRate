@@ -29,13 +29,14 @@ namespace FizzBuzz
 
         string DisplayTextIfIsMultiple (int number)
         {
+            String[] text = { "Fizz" , "Buzz" , "FizzBuzz"};
             if ((number % 3 == 0) && (number % 5 == 0))
-                return "FizzBuzz";
-            if (number % 3 == 0)
-                return "Fizz";
+                return text[2];
             if (number % 5 == 0)
-                return "Buzz";  
-            return "It's not a multiple of 3 !";
+                return text[1];
+            if (number % 3 == 0)
+                return text[0];  
+            return "It's not a multiple of 3 or 5 !";
             
         }
     }
