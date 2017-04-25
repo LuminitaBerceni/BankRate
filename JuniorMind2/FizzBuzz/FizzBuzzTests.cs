@@ -7,8 +7,15 @@ namespace FizzBuzz
     public class FizzBuzzTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TextIfIsMultipleOfThree()
         {
+            string textForMultipleOfThree = DisplayTextIfIsMultiple(6);
+            Assert.AreEqual("Fizz" , textForMultipleOfThree);
+        }
+
+        string DisplayTextIfIsMultiple (int number)
+        {
+            return "0";
         }
     }
 }
