@@ -14,7 +14,7 @@ namespace MonthlyDebt
 
         decimal CalculateTotalDebt (decimal monthRent, int delayDays)
         {
-            return 0;
+            return monthRent + (delayDays * monthRent * (decimal) 2/100);
         }
     }
 }
