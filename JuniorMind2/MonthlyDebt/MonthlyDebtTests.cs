@@ -12,9 +12,16 @@ namespace MonthlyDebt
             Assert.AreEqual(108,CalculateTotalDebt(100,4));
         }
 
+        [TestMethod]
+        public void TotalDebtForOverTenAndUnderThirtyDelayDays()
+        {
+            Assert.AreEqual(155, CalculateTotalDebt(100, 11));
+        }
+
         decimal CalculateTotalDebt (decimal monthRent, int delayDays)
         {
-            decimal penalties = delayDays * monthRent * (decimal) 2 / 100;
+            decimal penaltiPerDay = delayDays > 10 ? (decimal) 5/100 : (decimal) 2 / 100;
+            decimal penalties = delayDays * monthRent * penaltiPerDay;
             return monthRent + penalties;
         }
     }
