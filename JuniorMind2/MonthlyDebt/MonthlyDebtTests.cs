@@ -25,19 +25,19 @@ namespace MonthlyDebt
         }
 
         decimal CalculateTotalDebt (decimal monthRent, int delayDays)
-        {
-            decimal penaltiPerDay = GetPenaltiPerDay(delayDays);
-            decimal penalties = delayDays * monthRent * penaltiPerDay;
+        {        
+            decimal penalties = delayDays * monthRent * GetPenaltyPerDay(delayDays);
             return monthRent + penalties;
         }
 
-        private static decimal GetPenaltiPerDay(int delayDays)
+        private static decimal GetPenaltyPerDay(int delayDays)
         {
+            int[] penaltyRate = { 2, 5, 10 };
             if (delayDays < 10)
-                return (decimal) 2 / 100;
+                return (decimal) penaltyRate [0] / 100;
             if (delayDays > 10 && delayDays < 30)
-                return (decimal) 5 / 100;
-            return (decimal) 10 / 100;
+                return (decimal) penaltyRate [1] / 100;
+            return (decimal) penaltyRate [2] / 100;
         }
     }
 }
