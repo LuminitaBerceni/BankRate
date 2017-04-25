@@ -15,7 +15,11 @@ namespace FizzBuzz
 
         string DisplayTextIfIsMultiple (int number)
         {
-            return "0";
+            if (number % 3 == 0)
+                return "Fizz";
+            else
+                return "It's not a multiple of 3 !";
+            
         }
     }
 }
