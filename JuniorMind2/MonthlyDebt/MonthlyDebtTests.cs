@@ -7,8 +7,14 @@ namespace MonthlyDebt
     public class MonthlyDebtTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TotalDebtForUnderTenDelayDays()
         {
+            Assert.AreEqual(108,CalculateTotalDebt(100,4));
+        }
+
+        decimal CalculateTotalDebt (decimal monthRent, int delayDays)
+        {
+            return 0;
         }
     }
 }
