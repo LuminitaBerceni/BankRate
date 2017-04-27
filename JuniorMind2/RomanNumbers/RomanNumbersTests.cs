@@ -20,6 +20,13 @@ namespace RomanNumbers
             Assert.AreEqual("XXVI", romanNumber);
         }
 
+        [TestMethod]
+        public void ConvertNumberSmallerThanOneHundred()
+        {
+            string romanNumber = ConvertNumberInRomanNumber(89);
+            Assert.AreEqual("LXXXIX", romanNumber);
+        }
+
         string ConvertNumberInRomanNumber(int number)
         {
             string[] romanNumbersSmallerThanTen = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
