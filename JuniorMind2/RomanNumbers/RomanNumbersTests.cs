@@ -7,8 +7,16 @@ namespace RomanNumbers
     public class RomanNumbersTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ConvertNumberSmallerThanTen()
         {
+            string romanNumber = ConvertNumberInRomanNumber(5);
+            Assert.AreEqual("V", romanNumber);
         }
+
+        string ConvertNumberInRomanNumber(int number)
+        {
+            return "";
+        }
+
     }
 }
