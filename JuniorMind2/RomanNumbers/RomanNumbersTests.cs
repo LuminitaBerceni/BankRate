@@ -15,7 +15,8 @@ namespace RomanNumbers
 
         string ConvertNumberInRomanNumber(int number)
         {
-            return "";
+            string[] romanNumbersSmallerThanTen = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+            return romanNumbersSmallerThanTen[number-1];
         }
 
     }
