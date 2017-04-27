@@ -14,7 +14,7 @@ namespace WatermelonSplit
 
         string CanSplitWatermelonInTwoEvenParts(int watermelonWeight)
         {
-            return "";
+            return (watermelonWeight % 2 == 0 && watermelonWeight >= 4) ? "DA" : "NU";
         }
     }
 }
