@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz", "FizzBuzz\FizzBu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumbers", "RomanNumbers\RomanNumbers.csproj", "{A3429FB3-3382-4283-ACB2-3ADFA05CC39D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatermelonSplit", "WatermelonSplit\WatermelonSplit.csproj", "{A0C390DD-E260-41BF-878C-F3517CC8EDC7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A3429FB3-3382-4283-ACB2-3ADFA05CC39D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3429FB3-3382-4283-ACB2-3ADFA05CC39D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3429FB3-3382-4283-ACB2-3ADFA05CC39D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0C390DD-E260-41BF-878C-F3517CC8EDC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C390DD-E260-41BF-878C-F3517CC8EDC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C390DD-E260-41BF-878C-F3517CC8EDC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C390DD-E260-41BF-878C-F3517CC8EDC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
