@@ -36,15 +36,21 @@ namespace FizzBuzz
 
         string DisplayTextIfIsMultiple (int number)
         {
-            String[] text = { "Fizz" , "Buzz" , "FizzBuzz"};
-            if ((number % 3 == 0) && (number % 5 == 0))
-                return text[2];
-            if (number % 5 == 0)
-                return text[1];
-            if (number % 3 == 0)
-                return text[0];  
-            return "It's not a multiple of 3 or 5 !";
-            
+            string text = "";
+            if (IsDivisible(number, 15))
+                text = "FizzBuzz";
+            else if (IsDivisible(number, 3))
+                text = "Fizz";
+            else if (IsDivisible(number, 5))
+                text = "Buzz";
+            else
+                text = "It's not a multiple of 3 or 5 !";
+            return text;
+        }
+
+        private static bool IsDivisible(int multiple,int divisor)
+        {
+            return multiple % divisor == 0;
         }
     }
 }
