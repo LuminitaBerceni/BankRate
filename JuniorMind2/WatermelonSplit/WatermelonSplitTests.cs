@@ -7,8 +7,14 @@ namespace WatermelonSplit
     public class WatermelonSplitTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CanSplitWatermelon()
         {
+            Assert.AreEqual("DA",CanSplitWatermelonInTwoEvenParts(10));
+        }
+
+        string CanSplitWatermelonInTwoEvenParts(int watermelonWeight)
+        {
+            return "";
         }
     }
 }
