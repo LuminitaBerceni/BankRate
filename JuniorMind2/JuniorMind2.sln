@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumbers", "RomanNumber
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatermelonSplit", "WatermelonSplit\WatermelonSplit.csproj", "{A0C390DD-E260-41BF-878C-F3517CC8EDC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarmerFieldInitialDimension", "FarmerFieldInitialDimension\FarmerFieldInitialDimension.csproj", "{5FAF5619-2349-426B-B8A7-1F26E219612F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A0C390DD-E260-41BF-878C-F3517CC8EDC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C390DD-E260-41BF-878C-F3517CC8EDC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C390DD-E260-41BF-878C-F3517CC8EDC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FAF5619-2349-426B-B8A7-1F26E219612F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FAF5619-2349-426B-B8A7-1F26E219612F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FAF5619-2349-426B-B8A7-1F26E219612F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FAF5619-2349-426B-B8A7-1F26E219612F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

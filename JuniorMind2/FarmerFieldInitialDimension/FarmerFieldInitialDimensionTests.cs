@@ -7,8 +7,15 @@ namespace FarmerFieldInitialDimension
     public class FarmerFieldInitialDimensionTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CalculateFieldForSmallDimensions()
         {
+            double initialField = CalculateFieldInitialDimension(1, 2);
+            Assert.AreEqual(1, initialField);
+        }
+
+        double CalculateFieldInitialDimension(int finalWidth, int finalArea)
+        {
+            return 0;
         }
     }
 }
