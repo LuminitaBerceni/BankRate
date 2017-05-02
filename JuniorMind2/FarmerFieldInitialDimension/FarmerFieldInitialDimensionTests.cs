@@ -13,6 +13,13 @@ namespace FarmerFieldInitialDimension
             Assert.AreEqual(1, initialField);
         }
 
+        [TestMethod]
+        public void CalculateFieldForLargeDimensions()
+        {
+            double initialField = CalculateFieldInitialDimension(230, 770000);
+            Assert.AreEqual(592900, initialField);
+        }
+
         double CalculateFieldInitialDimension(int finalWidth, int finalArea)
         {
             double delta = finalWidth * finalWidth + 4 * finalArea;
