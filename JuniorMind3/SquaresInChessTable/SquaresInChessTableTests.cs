@@ -15,7 +15,10 @@ namespace SquaresInChessTable
 
         int CalculateSquaresInChessTable (int number)
         {
-            return 0;
+            int totalSquares = 0;
+            for (int i = 1; i <= number; i++)
+                totalSquares = totalSquares + (i * i);
+            return totalSquares;
         }
     }
 }
