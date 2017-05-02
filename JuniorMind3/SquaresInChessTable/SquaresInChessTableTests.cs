@@ -7,8 +7,15 @@ namespace SquaresInChessTable
     public class SquaresInChessTableTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void SquaresOnOneByOneTable()
         {
+            int squares = CalculateSquaresInChessTable(1);
+            Assert.AreEqual(1, squares);
+        }
+
+        int CalculateSquaresInChessTable (int number)
+        {
+            return 0;
         }
     }
 }
