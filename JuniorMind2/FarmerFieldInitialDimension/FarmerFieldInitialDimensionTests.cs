@@ -15,7 +15,14 @@ namespace FarmerFieldInitialDimension
 
         double CalculateFieldInitialDimension(int finalWidth, int finalArea)
         {
-            return 0;
+            double delta = finalWidth * finalWidth + 4 * finalArea;
+            if (delta > 0)
+            {
+                double x1 = (-finalWidth + Math.Sqrt(delta)) / 2;
+                return x1 * x1;
+            }
+            else
+                return 0;
         }
     }
 }
