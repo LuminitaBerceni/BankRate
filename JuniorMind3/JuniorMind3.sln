@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquaresInChessTable", "Squa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrefixForLetters", "PrefixForLetters\PrefixForLetters.csproj", "{2FC83510-6365-435B-AA31-6130CCF278B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pangram", "Pangram\Pangram.csproj", "{A0C9A6BF-C619-44A1-8970-FBFEFDC64E7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2FC83510-6365-435B-AA31-6130CCF278B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FC83510-6365-435B-AA31-6130CCF278B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FC83510-6365-435B-AA31-6130CCF278B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0C9A6BF-C619-44A1-8970-FBFEFDC64E7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C9A6BF-C619-44A1-8970-FBFEFDC64E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C9A6BF-C619-44A1-8970-FBFEFDC64E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C9A6BF-C619-44A1-8970-FBFEFDC64E7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
