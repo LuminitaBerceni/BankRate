@@ -30,8 +30,9 @@ namespace PrefixForLetters
         string FindPrefixLetters (string firstString, string secondString)
         {
             string prefix = "";
-            int firstStringLength = firstString.Length;
-            for (int i = 0; i <= firstStringLength; i++)
+            string smallerString = firstString.Length < secondString.Length ? firstString : secondString;
+            int smallerStringLength = smallerString.Length;
+            for (int i = 0; i < smallerStringLength; i++)
             {
                 if (firstString[i] != secondString[i])
                     break;
