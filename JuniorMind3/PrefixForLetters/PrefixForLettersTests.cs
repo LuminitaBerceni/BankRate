@@ -20,6 +20,13 @@ namespace PrefixForLetters
             Assert.AreEqual("aab", prefix);
         }
 
+        [TestMethod]
+        public void FindPrefixForStringWithDifferentLength()
+        {
+            string prefix = FindPrefixLetters("aa", "aab");
+            Assert.AreEqual("aa", prefix);
+        }
+
         string FindPrefixLetters (string firstString, string secondString)
         {
             string prefix = "";
