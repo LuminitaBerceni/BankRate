@@ -7,8 +7,15 @@ namespace Pangram
     public class PangramTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CheckAlphabet()
         {
+            string text = CheckIfIsPangram("abcdefghijklmnopqrstuvwxyz");
+            Assert.AreEqual("Yes", text);
+        }
+
+        string CheckIfIsPangram(string phrase)
+        {
+            return null;
         }
     }
 }
