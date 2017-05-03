@@ -7,8 +7,15 @@ namespace PrefixForLetters
     public class PrefixForLettersTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void FindPrefixForShortString()
         {
+            string prefix = FindPrefixLetters("ab", "aa");
+            Assert.AreEqual("a", prefix);
+        }
+
+        string FindPrefixLetters (string firstString, string secondString)
+        {
+            return "";
         }
     }
 }
