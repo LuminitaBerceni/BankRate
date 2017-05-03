@@ -45,16 +45,13 @@ namespace PrefixForLetters
         {
             string prefix = "";
             string smallerString = firstString.Length < secondString.Length ? firstString : secondString;
-            int smallerStringLength = smallerString.Length;
-            for (int i = 0; i < smallerStringLength; i++)
+            for (int i = 0; i < smallerString.Length; i++)
             {
                 if (firstString[i] != secondString[i])
                 {
                     break;
                 }
-
-                else
-                    prefix += firstString[i];
+                prefix += firstString[i];
             }
 
             return prefix;
