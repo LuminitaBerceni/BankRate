@@ -34,6 +34,13 @@ namespace PrefixForLetters
             Assert.AreEqual("aa", prefix);
         }
 
+        [TestMethod]
+        public void ThereIsNoPrefix()
+        {
+            string prefix = FindPrefixLetters("abc", "xbc");
+            Assert.AreEqual("", prefix);
+        }
+
         string FindPrefixLetters (string firstString, string secondString)
         {
             string prefix = "";
@@ -42,9 +49,12 @@ namespace PrefixForLetters
             for (int i = 0; i < smallerStringLength; i++)
             {
                 if (firstString[i] != secondString[i])
+                {
                     break;
+                }
+
                 else
-                    prefix = prefix + firstString[i];
+                    prefix += firstString[i];
             }
 
             return prefix;
