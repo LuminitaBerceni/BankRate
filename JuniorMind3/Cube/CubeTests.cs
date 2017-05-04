@@ -13,15 +13,23 @@ namespace Cube
             Assert.AreEqual(192, number);
         }
 
+
+        [TestMethod]
+        public void GetSecondCube()
+        {
+            int number = GetCube(2);
+            Assert.AreEqual(442, number);
+        }
+
         int GetCube(int k)
         {
             int count = 0;
-            int number = 1;
+            int number = 191;
             int cube = 1;
             while (count < k)
             {
                 number++;
-                cube = number * number * number;
+                cube = (int)Math.Pow(number, 3);
                 if (cube % 1000 == 888)
                     count++;
             }
