@@ -21,6 +21,13 @@ namespace Pangram
             Assert.AreEqual("No", text);
         }
 
+        [TestMethod]
+        public void CheckOurExemple()
+        {
+            string text = CheckIfIsPangram("The quick brown fox jumps over the lazy dog");
+            Assert.AreEqual("Yes", text);
+        }
+
         string CheckIfIsPangram(string phrase)
         {
             for (int j = 'a'; j <= 'z'; j++)
