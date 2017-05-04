@@ -15,7 +15,18 @@ namespace Cube
 
         int GetCube(int k)
         {
-            return 0;
+            int count = 0;
+            int number = 1;
+            int cube = 1;
+            while (count < k)
+            {
+                number++;
+                cube = number * number * number;
+                if (cube % 1000 == 888)
+                    count++;
+            }
+
+            return number;
         }
     }
 }
