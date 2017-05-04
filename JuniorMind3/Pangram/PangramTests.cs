@@ -37,12 +37,13 @@ namespace Pangram
 
         string CheckIfIsPangram(string phrase)
         {
+            string phraseWithLowercase = phrase.ToLower();
             for (int j = 'a'; j <= 'z'; j++)
             {
                 int count = 0;
-                for (int i = 0; i < phrase.Length; i++)
+                for (int i = 0; i < phraseWithLowercase.Length; i++)
                 {
-                    if (phrase[i] == j)
+                    if (phraseWithLowercase[i] == j)
                         count++;
                 }
                 if (count == 0)
