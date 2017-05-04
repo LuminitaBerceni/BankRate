@@ -28,6 +28,13 @@ namespace Pangram
             Assert.AreEqual("Yes", text);
         }
 
+        [TestMethod]
+        public void CheckForUpperLetters()
+        {
+            string text = CheckIfIsPangram("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG");
+            Assert.AreEqual("Yes", text);
+        }
+
         string CheckIfIsPangram(string phrase)
         {
             for (int j = 'a'; j <= 'z'; j++)
