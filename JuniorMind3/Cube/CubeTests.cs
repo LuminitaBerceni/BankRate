@@ -21,6 +21,13 @@ namespace Cube
             Assert.AreEqual(442, number);
         }
 
+        [TestMethod]
+        public void GetThirdCube()
+        {
+            int number = GetCube(3);
+            Assert.AreEqual(692, number);
+        }
+
         int GetCube(int k)
         {
             int count = 0;
