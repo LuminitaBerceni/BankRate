@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrefixForLetters", "PrefixF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pangram", "Pangram\Pangram.csproj", "{A0C9A6BF-C619-44A1-8970-FBFEFDC64E7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cube", "Cube\Cube.csproj", "{E719B41B-C8EE-45F6-A103-619151CB92A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A0C9A6BF-C619-44A1-8970-FBFEFDC64E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C9A6BF-C619-44A1-8970-FBFEFDC64E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C9A6BF-C619-44A1-8970-FBFEFDC64E7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E719B41B-C8EE-45F6-A103-619151CB92A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E719B41B-C8EE-45F6-A103-619151CB92A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E719B41B-C8EE-45F6-A103-619151CB92A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E719B41B-C8EE-45F6-A103-619151CB92A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
