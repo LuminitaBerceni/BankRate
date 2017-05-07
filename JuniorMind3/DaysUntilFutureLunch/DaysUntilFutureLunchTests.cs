@@ -14,7 +14,14 @@ namespace DaysUntilFutureLunch
 
         int CalculateLeastCommonMultiple(int firstNumber, int secondNumber )
         {
-            return 0;
+            int max = (firstNumber > secondNumber) ? firstNumber : secondNumber;
+            do
+            {
+                if (max % firstNumber == 0 && max % secondNumber == 0)
+                    return max;
+                else
+                    max++;
+            } while (true);
         }
     }
 }
