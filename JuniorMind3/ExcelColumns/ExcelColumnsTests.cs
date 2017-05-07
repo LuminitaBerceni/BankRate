@@ -14,7 +14,7 @@ namespace ExcelColumns
 
         char FindLettersForExcelColumns(int columnNumber)
         {
-            return ' ';
+            return (char)('@' + columnNumber);
         }
     }
 }
