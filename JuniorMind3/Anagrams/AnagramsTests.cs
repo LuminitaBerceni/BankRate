@@ -20,6 +20,13 @@ namespace Anagrams
             Assert.AreEqual(1, anagrams);
         }
 
+        [TestMethod]
+        public void CalculateAnagramsWithIdenticalLetters()
+        {
+            int anagrams = CalculateAnagrams("baba");
+            Assert.AreEqual(6, anagrams);
+        }
+
         int CalculateAnagrams (string word)
         {
             int factorialForRepetition = 1;
