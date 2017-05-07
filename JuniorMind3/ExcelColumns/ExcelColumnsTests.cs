@@ -30,6 +30,12 @@ namespace ExcelColumns
             Assert.AreEqual("AZ", FindLettersForExcelColumns(52));
         }
 
+        [TestMethod]
+        public void FindExcelColumnWithThreeLetters()
+        {
+            Assert.AreEqual("AAA", FindLettersForExcelColumns(703));
+        }
+
         string FindLettersForExcelColumns(int columnNumber)
         {
             string result = "";
