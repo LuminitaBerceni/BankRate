@@ -7,8 +7,17 @@ namespace Anagrams
     public class AnagramsTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CalculateAnagramsWithTwoDifferentLetters()
         {
+            int anagrams = CalculateAnagrams("ab");
+            Assert.AreEqual(2 , anagrams);
+
         }
+
+        int CalculateAnagrams (string word)
+        {
+            return 0;
+        }
+
     }
 }
