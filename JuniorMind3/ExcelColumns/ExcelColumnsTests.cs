@@ -9,12 +9,24 @@ namespace ExcelColumns
         [TestMethod]
         public void FindExcelColumnWithOneLetter()
         {
-            Assert.AreEqual('A', FindLettersForExcelColumns(1));
+            Assert.AreEqual("A", FindLettersForExcelColumns(1));
         }
 
-        char FindLettersForExcelColumns(int columnNumber)
+        [TestMethod]
+        public void FindExcelColumnWithTwoLetters()
         {
-            return (char)('@' + columnNumber);
+            Assert.AreEqual("AA", FindLettersForExcelColumns(27));
+        }
+
+        string FindLettersForExcelColumns(int columnNumber)
+        {
+            string result = "";
+            while (columnNumber > 0)
+            {
+                result = (char)('@' + columnNumber % 26) + result;
+                columnNumber = columnNumber / 26;
+            }
+            return result;
         }
     }
 }
