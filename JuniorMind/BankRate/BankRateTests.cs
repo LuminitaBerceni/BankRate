@@ -28,6 +28,7 @@ namespace BankRate
             Assert.AreEqual(21.6m , rate);
         }
 
+
         decimal CalculateBankRate(decimal total, int periodInMonths, decimal interestPerYear, int currentMonth)
         {
             decimal principal = total / periodInMonths;
