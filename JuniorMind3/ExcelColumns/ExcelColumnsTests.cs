@@ -7,8 +7,14 @@ namespace ExcelColumns
     public class ExcelColumnsTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void FindExcelColumnWithOneLetter()
         {
+            Assert.AreEqual('A', FindLettersForExcelColumns(1));
+        }
+
+        char FindLettersForExcelColumns(int columnNumber)
+        {
+            return ' ';
         }
     }
 }
