@@ -16,7 +16,16 @@ namespace Anagrams
 
         int CalculateAnagrams (string word)
         {
-            return 0;
+            return CalculateFactorial(word.Length);
+        }
+
+        int CalculateFactorial(int number)
+        {
+            if (number == 1)
+                return 1;
+            else
+                return number * CalculateFactorial(number - 1);
+
         }
 
     }
