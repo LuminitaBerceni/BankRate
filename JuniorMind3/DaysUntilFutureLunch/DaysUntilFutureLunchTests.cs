@@ -7,8 +7,14 @@ namespace DaysUntilFutureLunch
     public class DaysUntilFutureLunchTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CalculateDaysUntilFutureLunch()
         {
+            Assert.AreEqual(12, CalculateLeastCommonMultiple(4,6));
+        }
+
+        int CalculateLeastCommonMultiple(int firstNumber, int secondNumber )
+        {
+            return 0;
         }
     }
 }
