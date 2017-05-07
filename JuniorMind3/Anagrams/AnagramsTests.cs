@@ -27,6 +27,13 @@ namespace Anagrams
             Assert.AreEqual(6, anagrams);
         }
 
+        [TestMethod]
+        public void CalculateAnagramsForComplexWord()
+        {
+            int anagrams = CalculateAnagrams("informatica");
+            Assert.AreEqual(9979200, anagrams);
+        }
+
         int CalculateAnagrams (string word)
         {
             int factorialForRepetition = 1;
