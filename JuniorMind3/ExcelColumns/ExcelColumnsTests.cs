@@ -35,7 +35,8 @@ namespace ExcelColumns
             string result = "";
             while (columnNumber > 0)
             {
-                result = (char)('@' + columnNumber % 26) + result;
+                columnNumber -= 1;
+                result = (char)('A' + columnNumber % 26) + result;
                 columnNumber = columnNumber / 26;
             }
             return result;
