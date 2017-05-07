@@ -13,9 +13,21 @@ namespace ExcelColumns
         }
 
         [TestMethod]
+        public void FindExcelColumnWithOneLetter2()
+        {
+            Assert.AreEqual("Z", FindLettersForExcelColumns(26));
+        }
+
+        [TestMethod]
         public void FindExcelColumnWithTwoLetters()
         {
             Assert.AreEqual("AA", FindLettersForExcelColumns(27));
+        }
+
+        [TestMethod]
+        public void FindExcelColumnWithTwoLetters2()
+        {
+            Assert.AreEqual("AZ", FindLettersForExcelColumns(52));
         }
 
         string FindLettersForExcelColumns(int columnNumber)
