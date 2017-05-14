@@ -18,9 +18,20 @@ namespace LottoChances
             Assert.AreEqual(0.25, CalculateLottoChances(1, 4));
         }
 
+        [TestMethod]
+        public void LottoChance6Of49()
+        {
+            Assert.AreEqual(0.00000007151123842018516d, CalculateLottoChances(6, 49));
+        }
+
         double CalculateLottoChances (double NrOfExtractions, double RangeOfExtractions)
         {
-            return NrOfExtractions / RangeOfExtractions;
+            double chances = 1;
+            for (int i = 0; i < NrOfExtractions; i++)
+            {
+                chances *= (NrOfExtractions - i) / (RangeOfExtractions - i);
+            }
+            return chances;
         }
     }
 }
