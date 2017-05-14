@@ -7,8 +7,14 @@ namespace LottoChances
     public class LottoChancesTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void LottoChance1Of2()
         {
+            Assert.AreEqual(0.5 , CalculateLottoChances(1, 2));
+        }
+
+        double CalculateLottoChances (double NrOfExtractions, double RangeOfExtractions)
+        {
+            return 0;
         }
     }
 }
