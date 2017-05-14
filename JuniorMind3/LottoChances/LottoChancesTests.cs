@@ -14,7 +14,7 @@ namespace LottoChances
 
         double CalculateLottoChances (double NrOfExtractions, double RangeOfExtractions)
         {
-            return 0;
+            return NrOfExtractions / RangeOfExtractions;
         }
     }
 }
