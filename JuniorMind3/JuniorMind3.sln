@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anagrams", "Anagrams\Anagra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaysUntilFutureLunch", "DaysUntilFutureLunch\DaysUntilFutureLunch.csproj", "{3639A7EF-E2B2-4003-A392-496EF9D90C7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LottoChances", "LottoChances\LottoChances.csproj", "{5655A830-3CE2-4FBA-93AA-596E36B27850}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{3639A7EF-E2B2-4003-A392-496EF9D90C7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3639A7EF-E2B2-4003-A392-496EF9D90C7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3639A7EF-E2B2-4003-A392-496EF9D90C7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5655A830-3CE2-4FBA-93AA-596E36B27850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5655A830-3CE2-4FBA-93AA-596E36B27850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5655A830-3CE2-4FBA-93AA-596E36B27850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5655A830-3CE2-4FBA-93AA-596E36B27850}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
