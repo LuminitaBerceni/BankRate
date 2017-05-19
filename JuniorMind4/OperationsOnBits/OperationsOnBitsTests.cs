@@ -14,7 +14,16 @@ namespace OperationsOnBits
 
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase )
         {
-            return null;
+            byte[] convertedNumber = { };
+
+            while (number > 0)
+            {
+                Array.Resize(ref convertedNumber, convertedNumber.Length + 1);
+                convertedNumber[convertedNumber.Length - 1] = (byte)(number % convertedBase);
+                number /= convertedBase;
+            }
+
+            return convertedNumber;
         }
     }
 }
