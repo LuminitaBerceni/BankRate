@@ -10,6 +10,7 @@ namespace OperationsOnBits
         public void ConvertToBase2()
         {
             CollectionAssert.AreEqual(new byte[] { 1, 0, 1} , ConvertNumberToAnotherBase ( 5, 2));
+            CollectionAssert.AreEqual(new byte[] { 1, 1, 0 }, ConvertNumberToAnotherBase(6, 2));
         }
 
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase )
@@ -23,6 +24,7 @@ namespace OperationsOnBits
                 number /= convertedBase;
             }
 
+            Array.Reverse(convertedNumber);
             return convertedNumber;
         }
     }
