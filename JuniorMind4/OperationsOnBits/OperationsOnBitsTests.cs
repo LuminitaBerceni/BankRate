@@ -7,8 +7,14 @@ namespace OperationsOnBits
     public class OperationsOnBitsTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ConvertToBase2()
         {
+            CollectionAssert.AreEqual(new byte[] { 1, 0, 1} , ConvertNumberToAnotherBase ( 5, 2));
+        }
+
+        byte[] ConvertNumberToAnotherBase (int number, int convertedBase )
+        {
+            return null;
         }
     }
 }
