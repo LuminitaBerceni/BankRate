@@ -11,15 +11,21 @@ namespace OperationsOnBits
         {
             CollectionAssert.AreEqual(new byte[] { 1, 0, 1 }, ConvertNumberToAnotherBase(5, 2));
             CollectionAssert.AreEqual(new byte[] { 1, 1, 0 }, ConvertNumberToAnotherBase(6, 2));
+
+            CollectionAssert.AreEqual(new byte[] { 1, 1, 0, 0, 0, 1 }, ConvertNumberToAnotherBase(49, 2));
+            CollectionAssert.AreEqual(new byte[] { 1, 1, 0, 0, 1, 1, 1, 0 }, ConvertNumberToAnotherBase(206, 2));
         }
 
         [TestMethod]
         public void NotOperator()
         {
-            //CollectionAssert.AreEqual(ConvertNumberToAnotherBase(206, 2), NotOperation(ConvertNumberToAnotherBase(49, 2)));
-            byte[] inversedNumber = NotOperation(ConvertNumberToAnotherBase(2, 2));
-            byte[] shortNumberWithSameLength = BringShorterNumberAtSameLength(ConvertNumberToAnotherBase(5, 2), inversedNumber);
-            CollectionAssert.AreEqual(ConvertNumberToAnotherBase (5, 2), shortNumberWithSameLength);
+            byte[] inversedNumber2 = NotOperation(ConvertNumberToAnotherBase(49, 2));
+            byte[] shortNumberWithSameLength2 = BringShorterNumberAtSameLength(ConvertNumberToAnotherBase(206, 2), inversedNumber2);
+            CollectionAssert.AreEqual(ConvertNumberToAnotherBase(206, 2), shortNumberWithSameLength2);
+
+            byte[] inversedNumber1 = NotOperation(ConvertNumberToAnotherBase(2, 2));
+            byte[] shortNumberWithSameLength1 = BringShorterNumberAtSameLength(ConvertNumberToAnotherBase(5, 2), inversedNumber1);
+            CollectionAssert.AreEqual(ConvertNumberToAnotherBase (5, 2), shortNumberWithSameLength1);
         }
 
         [TestMethod]
@@ -27,12 +33,16 @@ namespace OperationsOnBits
         {
             Assert.AreEqual(3, GetLengthOfConvertedNumber(5, 2));
             Assert.AreEqual(2, GetLengthOfConvertedNumber(2, 2));
+
+            Assert.AreEqual(6, GetLengthOfConvertedNumber(49, 2));
+            Assert.AreEqual(8, GetLengthOfConvertedNumber(206, 2));
         }
 
         [TestMethod]
         public void MakeNumbersToSameLenght()
         {
             CollectionAssert.AreEqual(new byte[] { 0, 1, 0 }, BringShorterNumberAtSameLength( ConvertNumberToAnotherBase (2,2), ConvertNumberToAnotherBase(5, 2)));
+            CollectionAssert.AreEqual(new byte[] { 0, 0, 1, 1, 0, 0, 0, 1 }, BringShorterNumberAtSameLength(ConvertNumberToAnotherBase(49, 2), ConvertNumberToAnotherBase(206, 2)));
         } 
 
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
