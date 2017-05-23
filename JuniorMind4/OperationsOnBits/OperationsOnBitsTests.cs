@@ -16,7 +16,15 @@ namespace OperationsOnBits
         [TestMethod]
         public void NotOperator()
         {
-            CollectionAssert.AreEqual(ConvertNumberToAnotherBase(206, 2), NotOperation(ConvertNumberToAnotherBase(49, 2)));
+            //CollectionAssert.AreEqual(ConvertNumberToAnotherBase(206, 2), NotOperation(ConvertNumberToAnotherBase(49, 2)));
+            CollectionAssert.AreEqual(ConvertNumberToAnotherBase (5, 2), NotOperation(ConvertNumberToAnotherBase (2, 2)));      
+        }
+
+        [TestMethod]
+        public void VerifyLengthOfConvertedNumer()
+        {
+            Assert.AreEqual(3, GetLengthOfConvertedNumber(5, 2));
+            Assert.AreEqual(2, GetLengthOfConvertedNumber(2, 2));
         }
 
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase )
@@ -42,6 +50,17 @@ namespace OperationsOnBits
             }
             Array.Reverse(arrayBaseTwo);
             return arrayBaseTwo;
+        }
+
+        int GetLengthOfConvertedNumber(int number, int convertedBase)
+        {
+            int length = 0;
+            while (number > 0)
+            {
+                number /= convertedBase;
+                length++;
+            }
+            return length;
         }
     }
 }
