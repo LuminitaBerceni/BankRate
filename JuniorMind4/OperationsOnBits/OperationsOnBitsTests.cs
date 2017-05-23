@@ -17,7 +17,9 @@ namespace OperationsOnBits
         public void NotOperator()
         {
             //CollectionAssert.AreEqual(ConvertNumberToAnotherBase(206, 2), NotOperation(ConvertNumberToAnotherBase(49, 2)));
-            CollectionAssert.AreEqual(ConvertNumberToAnotherBase (5, 2), NotOperation(ConvertNumberToAnotherBase (2, 2)));
+            byte[] inversedNumber = NotOperation(ConvertNumberToAnotherBase(2, 2));
+            byte[] shortNumberWithSameLength = BringShorterNumberAtSameLength(ConvertNumberToAnotherBase(5, 2), inversedNumber);
+            CollectionAssert.AreEqual(ConvertNumberToAnotherBase (5, 2), shortNumberWithSameLength);
         }
 
         [TestMethod]
