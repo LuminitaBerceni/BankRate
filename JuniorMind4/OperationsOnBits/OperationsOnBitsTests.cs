@@ -9,7 +9,7 @@ namespace OperationsOnBits
         [TestMethod]
         public void ConvertToBase2()
         {
-            CollectionAssert.AreEqual(new byte[] { 1, 0, 1} , ConvertNumberToAnotherBase ( 5, 2));
+            CollectionAssert.AreEqual(new byte[] { 1, 0, 1 }, ConvertNumberToAnotherBase(5, 2));
             CollectionAssert.AreEqual(new byte[] { 1, 1, 0 }, ConvertNumberToAnotherBase(6, 2));
         }
 
@@ -17,7 +17,7 @@ namespace OperationsOnBits
         public void NotOperator()
         {
             //CollectionAssert.AreEqual(ConvertNumberToAnotherBase(206, 2), NotOperation(ConvertNumberToAnotherBase(49, 2)));
-            CollectionAssert.AreEqual(ConvertNumberToAnotherBase (5, 2), NotOperation(ConvertNumberToAnotherBase (2, 2)));      
+            CollectionAssert.AreEqual(ConvertNumberToAnotherBase (5, 2), NotOperation(ConvertNumberToAnotherBase (2, 2)));
         }
 
         [TestMethod]
@@ -27,7 +27,13 @@ namespace OperationsOnBits
             Assert.AreEqual(2, GetLengthOfConvertedNumber(2, 2));
         }
 
-        byte[] ConvertNumberToAnotherBase (int number, int convertedBase )
+        [TestMethod]
+        public void MakeNumbersToSameLenght()
+        {
+            CollectionAssert.AreEqual(new byte[] { 0, 1, 0 }, BringShorterNumberAtSameLength( ConvertNumberToAnotherBase (2,2), ConvertNumberToAnotherBase(5, 2)));
+        } 
+
+        byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
         {
             byte[] convertedNumber = { };
 
@@ -61,6 +67,20 @@ namespace OperationsOnBits
                 length++;
             }
             return length;
+        }
+
+        byte[] BringShorterNumberAtSameLength(byte[] shortNumber, byte[] longNumber)
+        {
+            byte[] newNumber = new byte[] { };
+            Array.Reverse(shortNumber);
+            newNumber = shortNumber;
+            for (int i = shortNumber.Length; i < longNumber.Length; i++)
+            {
+                Array.Resize(ref newNumber, newNumber.Length + 1);
+                newNumber[i] = (byte) 0;
+            }
+            Array.Reverse(newNumber);
+            return newNumber;
         }
     }
 }
