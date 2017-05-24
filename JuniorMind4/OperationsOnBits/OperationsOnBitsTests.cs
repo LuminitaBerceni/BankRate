@@ -60,6 +60,20 @@ namespace OperationsOnBits
             CollectionAssert.AreEqual(ConvertNumberToAnotherBase(7 , 2), LogicOperation(firstNumber, secondNumber, "OR"));
         }
 
+        [TestMethod]
+        public void LogicOperationAND()
+        {
+            byte[] firstNumber = ConvertNumberToAnotherBase(5, 2);
+            byte[] secondNumber = ConvertNumberToAnotherBase(3, 2);
+            byte[] result = LogicOperation(firstNumber, secondNumber, "AND");
+
+            Assert.AreEqual(3 , result.Length);
+            Assert.AreEqual(1, ConvertNumberToAnotherBase(1, 2).Length);
+
+            byte[] expectedResult = BringShorterNumberAtSameLength(ConvertNumberToAnotherBase(1, 2), result);
+            CollectionAssert.AreEqual(expectedResult, result);
+        }
+
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
         {
             byte[] convertedNumber = { };
