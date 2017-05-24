@@ -43,7 +43,14 @@ namespace OperationsOnBits
         {
             CollectionAssert.AreEqual(new byte[] { 0, 1, 0 }, BringShorterNumberAtSameLength( ConvertNumberToAnotherBase (2,2), ConvertNumberToAnotherBase(5, 2)));
             CollectionAssert.AreEqual(new byte[] { 0, 0, 1, 1, 0, 0, 0, 1 }, BringShorterNumberAtSameLength(ConvertNumberToAnotherBase(49, 2), ConvertNumberToAnotherBase(206, 2)));
-        } 
+        }
+
+        [TestMethod]
+        public void GetElementFromGivenPosition()
+        {
+            Assert.AreEqual(2, GetAt ( new byte[] { 1, 2, 3, 4} , 2 ) );
+            Assert.AreEqual(0, GetAt(new byte[] { 1, 2, 3, 4 }, 5));
+        }
 
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
         {
@@ -93,6 +100,13 @@ namespace OperationsOnBits
             }
             Array.Reverse(newNumber);
             return newNumber;
+        }
+
+        byte GetAt(byte[] binaryNumber, int position)
+        {
+            if (position >= 0 && position < binaryNumber.Length)
+                return binaryNumber[binaryNumber.Length - position - 1];
+            return 0;
         }
     }
 }
