@@ -74,6 +74,14 @@ namespace OperationsOnBits
             CollectionAssert.AreEqual(expectedResult, result);
         }
 
+        [TestMethod]
+        public void LogicOperationXOR()
+        {
+            byte[] firstNumber = ConvertNumberToAnotherBase(5, 2);
+            byte[] secondNumber = ConvertNumberToAnotherBase(3, 2);
+            CollectionAssert.AreEqual(ConvertNumberToAnotherBase(6, 2), LogicOperation(firstNumber, secondNumber, "XOR"));
+        }
+
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
         {
             byte[] convertedNumber = { };
