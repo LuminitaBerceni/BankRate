@@ -52,6 +52,14 @@ namespace OperationsOnBits
             Assert.AreEqual(0, GetAt(new byte[] { 1, 2, 3, 4 }, 5));
         }
 
+        [TestMethod]
+        public void LogicOperationOR()
+        {
+            byte[] firstNumber = ConvertNumberToAnotherBase(5, 2);
+            byte[] secondNumber = ConvertNumberToAnotherBase(3, 2);
+            CollectionAssert.AreEqual(ConvertNumberToAnotherBase(7 , 2), LogicOperation(firstNumber, secondNumber, "OR"));
+        }
+
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
         {
             byte[] convertedNumber = { };
@@ -107,6 +115,29 @@ namespace OperationsOnBits
             if (position >= 0 && position < binaryNumber.Length)
                 return binaryNumber[binaryNumber.Length - position - 1];
             return 0;
+        }
+
+        public byte[] LogicOperation(byte[] firstNumber, byte[] secondNumber, string operation)
+        {
+            byte[] result = new byte[Math.Max(firstNumber.Length, secondNumber.Length)];
+            for (int i = 0; i < result.Length; i++)
+            {
+                switch (operation)
+                {
+                    case "OR":
+                        result[i] = (GetAt(firstNumber, i) == 0 && GetAt(secondNumber, i) == 0) ? (byte)0 : (byte)1;
+                        break;
+                    case "AND":
+                        result[i] = (GetAt(firstNumber, i) == 1 && GetAt(secondNumber, i) == 1) ? (byte)1 : (byte)0;
+                        break;
+                    case "XOR":
+                        result[i] = (GetAt(firstNumber, i) != GetAt(secondNumber, i)) ? (byte)1 : (byte)0;
+                        break;
+                }
+            }
+            Array.Reverse(result);
+            return result;
+
         }
     }
 }
