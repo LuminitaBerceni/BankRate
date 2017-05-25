@@ -67,6 +67,13 @@ namespace OperationsOnBits
             Assert.Equal(ConvertToBinary(8 >> 3), RightHandShift(ConvertToBinary(8), 3));
         }
 
+        [Fact]
+        public void LeftShift()
+        {
+            Assert.Equal(ConvertToBinary(5 << 2), LeftHandShift(ConvertToBinary(5), 2));
+            Assert.Equal(ConvertToBinary(8 << 3), LeftHandShift(ConvertToBinary(8), 3));
+        }
+
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
         {
             byte[] convertedNumber = { };
@@ -165,6 +172,16 @@ namespace OperationsOnBits
         { 
             Array.Resize(ref number, number.Length - positions);
             return number;
+        }
+
+        byte[] LeftHandShift(byte[] number, int positions)
+        {
+            byte[] result = new byte[number.Length + positions];
+            for (int i = 0; i < number.Length; i++)
+            {
+                result[i] = number[i];
+            }
+            return result;
         }
 
     }
