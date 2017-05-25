@@ -1,85 +1,63 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections;
+using Xunit;
 
 namespace OperationsOnBits
 {
-    [TestClass]
+    
     public class OperationsOnBitsTests
     {
-        [TestMethod]
+        [Fact]
         public void ConvertToBase2()
         {
-            CollectionAssert.AreEqual(new byte[] { 1, 0, 1 }, ConvertNumberToAnotherBase(5, 2));
-            CollectionAssert.AreEqual(new byte[] { 1, 1, 0 }, ConvertNumberToAnotherBase(6, 2));
+            Assert.Equal(new byte[] { 1, 0, 1 }, ConvertToBinary(5));
+            Assert.Equal(new byte[] { 1, 1, 0 }, ConvertToBinary(6));
 
-            CollectionAssert.AreEqual(new byte[] { 1, 1, 0, 0, 0, 1 }, ConvertNumberToAnotherBase(49, 2));
-            CollectionAssert.AreEqual(new byte[] { 1, 1, 0, 0, 1, 1, 1, 0 }, ConvertNumberToAnotherBase(206, 2));
+            Assert.Equal(new byte[] { 1, 1, 0, 0, 0, 1 }, ConvertToBinary(49));
+            Assert.Equal(new byte[] { 1, 1, 0, 0, 1, 1, 1, 0 }, ConvertToBinary(206));
         }
 
-        [TestMethod]
+        [Fact]
         public void NotOperator()
         {
-            byte[] inversedNumber2 = NotOperation(ConvertNumberToAnotherBase(49, 2));
-            byte[] shortNumberWithSameLength2 = BringShorterNumberAtSameLength(ConvertNumberToAnotherBase(206, 2), inversedNumber2);
-            CollectionAssert.AreEqual(ConvertNumberToAnotherBase(206, 2), shortNumberWithSameLength2);
-
-            byte[] inversedNumber1 = NotOperation(ConvertNumberToAnotherBase(2, 2));
-            byte[] shortNumberWithSameLength1 = BringShorterNumberAtSameLength(ConvertNumberToAnotherBase(5, 2), inversedNumber1);
-            CollectionAssert.AreEqual(ConvertNumberToAnotherBase (5, 2), shortNumberWithSameLength1);
+            Assert.Equal(ConvertToBinary(2), NotOperation(ConvertToBinary(5)));
         }
 
-        [TestMethod]
-        public void VerifyLengthOfConvertedNumer()
+        [Fact]
+        public void RemoveZeroes()
         {
-            Assert.AreEqual(3, GetLengthOfConvertedNumber(5, 2));
-            Assert.AreEqual(2, GetLengthOfConvertedNumber(2, 2));
-
-            Assert.AreEqual(6, GetLengthOfConvertedNumber(49, 2));
-            Assert.AreEqual(8, GetLengthOfConvertedNumber(206, 2));
+            Assert.Equal(new byte[] { 1 }, RemoveLeadingZeroes(new byte[] { 0, 1 }));
         }
 
-        [TestMethod]
-        public void MakeNumbersToSameLenght()
-        {
-            CollectionAssert.AreEqual(new byte[] { 0, 1, 0 }, BringShorterNumberAtSameLength( ConvertNumberToAnotherBase (2,2), ConvertNumberToAnotherBase(5, 2)));
-            CollectionAssert.AreEqual(new byte[] { 0, 0, 1, 1, 0, 0, 0, 1 }, BringShorterNumberAtSameLength(ConvertNumberToAnotherBase(49, 2), ConvertNumberToAnotherBase(206, 2)));
-        }
-
-        [TestMethod]
+        [Fact]
         public void GetElementFromGivenPosition()
         {
-            Assert.AreEqual(2, GetAt ( new byte[] { 1, 2, 3, 4} , 2 ) );
-            Assert.AreEqual(0, GetAt(new byte[] { 1, 2, 3, 4 }, 5));
+            Assert.Equal(2, GetAt ( new byte[] { 1, 2, 3, 4} , 2 ) );
+            Assert.Equal(0, GetAt( new byte[] { 1, 2, 3, 4 }, 5));
         }
 
-        [TestMethod]
+        [Fact]
         public void LogicOperationOR()
         {
-            byte[] firstNumber = ConvertNumberToAnotherBase(5, 2);
-            byte[] secondNumber = ConvertNumberToAnotherBase(3, 2);
-            CollectionAssert.AreEqual(ConvertNumberToAnotherBase(7 , 2), LogicOperation(firstNumber, secondNumber, "OR"));
+            byte[] firstNumber = ConvertToBinary(5);
+            byte[] secondNumber = ConvertToBinary(3);
+            Assert.Equal(ConvertToBinary(7), LogicOperation(firstNumber, secondNumber, "OR"));
         }
 
-        [TestMethod]
+        [Fact]
         public void LogicOperationAND()
         {
-            byte[] firstNumber = ConvertNumberToAnotherBase(5, 2);
-            byte[] secondNumber = ConvertNumberToAnotherBase(3, 2);
-            byte[] result = LogicOperation(firstNumber, secondNumber, "AND");
-
-            Assert.AreEqual(3 , result.Length);
-            Assert.AreEqual(1, ConvertNumberToAnotherBase(1, 2).Length);
-
-            byte[] expectedResult = BringShorterNumberAtSameLength(ConvertNumberToAnotherBase(1, 2), result);
-            CollectionAssert.AreEqual(expectedResult, result);
+            byte[] firstNumber = ConvertToBinary(5);
+            byte[] secondNumber = ConvertToBinary(3);
+            Assert.Equal(ConvertToBinary(1), LogicOperation(firstNumber, secondNumber, "AND"));
         }
 
-        [TestMethod]
+        [Fact]
         public void LogicOperationXOR()
         {
-            byte[] firstNumber = ConvertNumberToAnotherBase(5, 2);
-            byte[] secondNumber = ConvertNumberToAnotherBase(3, 2);
-            CollectionAssert.AreEqual(ConvertNumberToAnotherBase(6, 2), LogicOperation(firstNumber, secondNumber, "XOR"));
+            byte[] firstNumber = ConvertToBinary(5);
+            byte[] secondNumber = ConvertToBinary(3);
+            Assert.Equal(ConvertToBinary(6), LogicOperation(firstNumber, secondNumber, "XOR"));
         }
 
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
@@ -97,39 +75,36 @@ namespace OperationsOnBits
             return convertedNumber;
         }
 
+        byte[] ConvertToBinary(int number)
+        {
+            return ConvertNumberToAnotherBase(number, 2);
+        }
+
         byte[] NotOperation (byte[] arrayBaseTwo)
         {
             for (int i = 0; i < arrayBaseTwo.Length; i++)
             {
                 arrayBaseTwo[i] = (byte)((arrayBaseTwo[i] == 0) ? 1 : 0);
             }
-            Array.Reverse(arrayBaseTwo);
-            return arrayBaseTwo;
+            return RemoveLeadingZeroes(arrayBaseTwo);
         }
 
-        int GetLengthOfConvertedNumber(int number, int convertedBase)
+        byte[] RemoveLeadingZeroes(byte[] number)
         {
-            int length = 0;
-            while (number > 0)
+            byte[] result = new byte[number.Length];
+            for (int i = 0; i < number.Length; i++)
             {
-                number /= convertedBase;
-                length++;
+                if (number[i] > 0)
+                {
+                    Array.Resize(ref result, number.Length - i);
+                    for (int j = 0; j < result.Length; j++)
+                    {
+                        result[j] = number[i + j];
+                    }
+                    break;
+                }
             }
-            return length;
-        }
-
-        byte[] BringShorterNumberAtSameLength(byte[] shortNumber, byte[] longNumber)
-        {
-            byte[] newNumber = new byte[] { };
-            Array.Reverse(shortNumber);
-            newNumber = shortNumber;
-            for (int i = shortNumber.Length; i < longNumber.Length; i++)
-            {
-                Array.Resize(ref newNumber, newNumber.Length + 1);
-                newNumber[i] = (byte) 0;
-            }
-            Array.Reverse(newNumber);
-            return newNumber;
+            return result;
         }
 
         byte GetAt(byte[] binaryNumber, int position)
@@ -144,22 +119,39 @@ namespace OperationsOnBits
             byte[] result = new byte[Math.Max(firstNumber.Length, secondNumber.Length)];
             for (int i = 0; i < result.Length; i++)
             {
+                byte first = GetAt(firstNumber, i);
+                byte second = GetAt(secondNumber, i);
                 switch (operation)
                 {
                     case "OR":
-                        result[i] = (GetAt(firstNumber, i) == 0 && GetAt(secondNumber, i) == 0) ? (byte)0 : (byte)1;
+                        result[i] = OR(first, second);
                         break;
                     case "AND":
-                        result[i] = (GetAt(firstNumber, i) == 1 && GetAt(secondNumber, i) == 1) ? (byte)1 : (byte)0;
+                        result[i] = AND(first, second);
                         break;
                     case "XOR":
-                        result[i] = (GetAt(firstNumber, i) != GetAt(secondNumber, i)) ? (byte)1 : (byte)0;
+                        result[i] = XOR(first, second);
                         break;
                 }
             }
             Array.Reverse(result);
-            return result;
+            return RemoveLeadingZeroes (result);
 
+        }
+
+        private static byte XOR(byte first, byte second)
+        {
+            return first != second ? (byte)1 : (byte)0;
+        }
+
+        private static byte AND(byte first, byte second)
+        {
+            return first == 1 && second == 1 ? (byte)1 : (byte)0;
+        }
+
+        private static byte OR(byte first, byte second)
+        {
+            return first == 0 && second == 0 ? (byte)0 : (byte)1;
         }
     }
 }
