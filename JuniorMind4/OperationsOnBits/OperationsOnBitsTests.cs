@@ -60,6 +60,13 @@ namespace OperationsOnBits
             Assert.Equal(ConvertToBinary(6), LogicOperation(firstNumber, secondNumber, "XOR"));
         }
 
+        [Fact]
+        public void RightShift()
+        {
+            Assert.Equal(ConvertToBinary(5 >> 2), RightHandShift(ConvertToBinary(5), 2));
+            Assert.Equal(ConvertToBinary(8 >> 3), RightHandShift(ConvertToBinary(8), 3));
+        }
+
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
         {
             byte[] convertedNumber = { };
@@ -153,5 +160,12 @@ namespace OperationsOnBits
         {
             return first == 0 && second == 0 ? (byte)0 : (byte)1;
         }
+
+        byte[] RightHandShift(byte[] number, int positions)
+        { 
+            Array.Resize(ref number, number.Length - positions);
+            return number;
+        }
+
     }
 }
