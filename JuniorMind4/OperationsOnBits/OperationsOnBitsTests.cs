@@ -74,6 +74,13 @@ namespace OperationsOnBits
             Assert.Equal(ConvertToBinary(8 << 3), LeftHandShift(ConvertToBinary(8), 3));
         }
 
+        [Fact]
+        public void Sum()
+        {
+            Assert.Equal(ConvertToBinary(8), Sum(ConvertToBinary(5),ConvertToBinary(3)));
+            Assert.Equal(ConvertToBinary(142), Sum(ConvertToBinary(127), ConvertToBinary(15)));
+        }
+
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
         {
             byte[] convertedNumber = { };
@@ -182,6 +189,29 @@ namespace OperationsOnBits
                 result[i] = number[i];
             }
             return result;
+        }
+
+        byte[] Sum(byte[] first, byte[] second )
+        {
+            var result = new byte[Math.Max(first.Length, second.Length)];
+            int numberToRemember = 0;
+            for (int i = 0; i < result.Length; i++)
+            {
+                var sum = GetAt(first, i) + GetAt(second, i) + numberToRemember;
+                result[i] = (byte)(sum % 2);
+                numberToRemember = sum / 2;
+            }
+
+            if (numberToRemember != 0)
+            {
+                Array.Resize(ref result, result.Length + 1);
+                result[result.Length - 1] = (byte)numberToRemember;
+                Array.Reverse(result);
+                return result;
+            }
+            Array.Reverse(result);
+            return result;
+
         }
 
     }
