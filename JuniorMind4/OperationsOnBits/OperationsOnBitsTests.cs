@@ -105,6 +105,13 @@ namespace OperationsOnBits
             Assert.Equal(true, GreaterThan(ConvertToBinary(5), ConvertToBinary(3)));
         }
 
+        [Fact]
+        public void CheckAreEqual()
+        {
+            Assert.Equal(false, AreEqual(ConvertToBinary(3), ConvertToBinary(5)));
+            Assert.Equal(true, AreEqual(ConvertToBinary(5), ConvertToBinary(5)));
+        }
+
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
         {
             byte[] convertedNumber = { };
@@ -272,6 +279,11 @@ namespace OperationsOnBits
                     return GetAt(first, i) > GetAt(second, i);
             }
             return false;
+        }
+
+        bool AreEqual(byte[] first, byte[] second)
+        {
+            return !LessThan(first, second) && !GreaterThan(first, second);
         }
 
     }
