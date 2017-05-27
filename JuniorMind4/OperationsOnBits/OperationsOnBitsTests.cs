@@ -89,6 +89,14 @@ namespace OperationsOnBits
             Assert.Equal(ConvertToBinary(12), Difference(ConvertToBinary(17), ConvertToBinary(5)));
         }
 
+        [Fact]
+        public void CheckLessThan()
+        {
+            Assert.Equal(true, LessThan(ConvertToBinary(3), ConvertToBinary(5)));
+            Assert.Equal(false, LessThan(ConvertToBinary(5), ConvertToBinary(5)));
+            Assert.Equal(true, LessThan(ConvertToBinary(8), ConvertToBinary(12)));
+        }
+
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
         {
             byte[] convertedNumber = { };
@@ -236,6 +244,16 @@ namespace OperationsOnBits
             }
             result = RemoveLeadingZeroes(result);
             return result;
+        }
+
+        bool LessThan(byte[] first, byte[] second)
+        {
+            for (int i = Math.Max(first.Length, second.Length) - 1; i >= 0; i--)
+            {
+                if (GetAt(first, i) != GetAt(second, i))
+                    return GetAt(first, i) < GetAt(second, i);
+            }
+            return false;
         }
 
     }
