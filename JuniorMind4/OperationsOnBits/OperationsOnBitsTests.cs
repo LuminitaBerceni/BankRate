@@ -97,6 +97,14 @@ namespace OperationsOnBits
             Assert.Equal(true, LessThan(ConvertToBinary(8), ConvertToBinary(12)));
         }
 
+        [Fact]
+        public void CheckGreaterThan()
+        {
+            Assert.Equal(false, GreaterThan(ConvertToBinary(3), ConvertToBinary(5)));
+            Assert.Equal(false, GreaterThan(ConvertToBinary(5), ConvertToBinary(5)));
+            Assert.Equal(true, GreaterThan(ConvertToBinary(5), ConvertToBinary(3)));
+        }
+
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
         {
             byte[] convertedNumber = { };
@@ -252,6 +260,16 @@ namespace OperationsOnBits
             {
                 if (GetAt(first, i) != GetAt(second, i))
                     return GetAt(first, i) < GetAt(second, i);
+            }
+            return false;
+        }
+
+        bool GreaterThan(byte[] first, byte[] second)
+        {
+            for (int i = Math.Max(first.Length, second.Length) - 1; i >= 0; i--)
+            {
+                if (GetAt(first, i) != GetAt(second, i))
+                    return GetAt(first, i) > GetAt(second, i);
             }
             return false;
         }
