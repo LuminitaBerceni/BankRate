@@ -26,7 +26,7 @@ namespace OperationsOnBits
         [Fact]
         public void RemoveZeroes()
         {
-            Assert.Equal(new byte[] { 1 }, RemoveLeadingZeroes(new byte[] { 0, 1 }));
+            Assert.Equal(new byte[] { 1, 0, 1 }, RemoveLeadingZeroes(new byte[] { 0, 1, 0, 1 }));
         }
 
         [Fact]
@@ -81,6 +81,14 @@ namespace OperationsOnBits
             Assert.Equal(ConvertToBinary(142), Sum(ConvertToBinary(127), ConvertToBinary(15)));
         }
 
+        [Fact]
+        public void Difference()
+        {
+            Assert.Equal(ConvertToBinary(2), Difference(ConvertToBinary(5), ConvertToBinary(3)));
+            Assert.Equal(ConvertToBinary(6), Difference(ConvertToBinary(10), ConvertToBinary(4)));
+            Assert.Equal(ConvertToBinary(12), Difference(ConvertToBinary(17), ConvertToBinary(5)));
+        }
+
         byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
         {
             byte[] convertedNumber = { };
@@ -127,6 +135,7 @@ namespace OperationsOnBits
             }
             return result;
         }
+
 
         byte GetAt(byte[] binaryNumber, int position)
         {
@@ -209,9 +218,24 @@ namespace OperationsOnBits
                 Array.Reverse(result);
                 return result;
             }
-            Array.Reverse(result);
-            return result;
+            else return result;
+        }
 
+        byte[] Difference(byte[] first, byte[] second)
+        {
+
+            byte[] result = new byte[first.Length];
+            int numberToRemember = 0;
+            for (int i = 0; i < first.Length; i++)
+            {
+                int difference = (byte)(2 + (GetAt(first, i) - GetAt(second, i) - numberToRemember));
+                result[result.Length - i - 1] = (byte)(difference % 2);
+
+                if (difference < 2) numberToRemember = 1;
+                else numberToRemember = 0;
+            }
+            result = RemoveLeadingZeroes(result);
+            return result;
         }
 
     }
