@@ -126,6 +126,13 @@ namespace OperationsOnBits
             Assert.Equal(ConvertToBinary(28), Multiply(ConvertToBinary(7), ConvertToBinary(4)));
         }
 
+        [Fact]
+        public void Division()
+        {
+            Assert.Equal(ConvertToBinary(3), Division(ConvertToBinary(6), ConvertToBinary(2)));
+            Assert.Equal(ConvertToBinary(7), Multiply(ConvertToBinary(28), ConvertToBinary(4)));
+        }
+
         byte[] ConvertNumberToAnotherBase(int number, int convertedBase)
         {
             byte[] convertedNumber = { };
@@ -314,6 +321,17 @@ namespace OperationsOnBits
             }
             while (AreNotEqual(second, ConvertToBinary(0)));
             return RemoveLeadingZeroes (result);
+        }
+
+        byte[] Division(byte[] first, byte[] second)
+        {
+            int divisionCounter = 0;
+            while (AreNotEqual(first, ConvertToBinary(0)))
+            {
+                first = Difference(first, second);
+                divisionCounter++;
+            }
+            return ConvertToBinary(divisionCounter);
         }
     }
 }
