@@ -4,7 +4,7 @@ using Xunit;
 
 namespace OperationsOnBits
 {
-    
+
     public class OperationsOnBitsTests
     {
         [Fact]
@@ -32,8 +32,8 @@ namespace OperationsOnBits
         [Fact]
         public void GetElementFromGivenPosition()
         {
-            Assert.Equal(2, GetAt ( new byte[] { 1, 2, 3, 4} , 2 ) );
-            Assert.Equal(0, GetAt( new byte[] { 1, 2, 3, 4 }, 5));
+            Assert.Equal(2, GetAt(new byte[] { 1, 2, 3, 4 }, 2));
+            Assert.Equal(0, GetAt(new byte[] { 1, 2, 3, 4 }, 5));
         }
 
         [Fact]
@@ -77,7 +77,7 @@ namespace OperationsOnBits
         [Fact]
         public void Sum()
         {
-            Assert.Equal(ConvertToBinary(8), Sum(ConvertToBinary(5),ConvertToBinary(3)));
+            Assert.Equal(ConvertToBinary(8), Sum(ConvertToBinary(5), ConvertToBinary(3)));
             Assert.Equal(ConvertToBinary(142), Sum(ConvertToBinary(127), ConvertToBinary(15)));
         }
 
@@ -119,7 +119,14 @@ namespace OperationsOnBits
             Assert.Equal(false, AreNotEqual(ConvertToBinary(5), ConvertToBinary(5)));
         }
 
-        byte[] ConvertNumberToAnotherBase (int number, int convertedBase)
+        [Fact]
+        public void Multiplication()
+        {
+            Assert.Equal(ConvertToBinary(6), Multiply(ConvertToBinary(3), ConvertToBinary(2)));
+            Assert.Equal(ConvertToBinary(28), Multiply(ConvertToBinary(7), ConvertToBinary(4)));
+        }
+
+        byte[] ConvertNumberToAnotherBase(int number, int convertedBase)
         {
             byte[] convertedNumber = { };
 
@@ -139,7 +146,7 @@ namespace OperationsOnBits
             return ConvertNumberToAnotherBase(number, 2);
         }
 
-        byte[] NotOperation (byte[] arrayBaseTwo)
+        byte[] NotOperation(byte[] arrayBaseTwo)
         {
             for (int i = 0; i < arrayBaseTwo.Length; i++)
             {
@@ -195,7 +202,7 @@ namespace OperationsOnBits
                 }
             }
             Array.Reverse(result);
-            return RemoveLeadingZeroes (result);
+            return RemoveLeadingZeroes(result);
 
         }
 
@@ -215,7 +222,7 @@ namespace OperationsOnBits
         }
 
         byte[] RightHandShift(byte[] number, int positions)
-        { 
+        {
             Array.Resize(ref number, number.Length - positions);
             return number;
         }
@@ -230,7 +237,7 @@ namespace OperationsOnBits
             return result;
         }
 
-        byte[] Sum(byte[] first, byte[] second )
+        byte[] Sum(byte[] first, byte[] second)
         {
             var result = new byte[Math.Max(first.Length, second.Length)];
             int numberToRemember = 0;
@@ -264,8 +271,7 @@ namespace OperationsOnBits
                 if (difference < 2) numberToRemember = 1;
                 else numberToRemember = 0;
             }
-            result = RemoveLeadingZeroes(result);
-            return result;
+            return RemoveLeadingZeroes(result);
         }
 
         bool LessThan(byte[] first, byte[] second)
@@ -295,8 +301,19 @@ namespace OperationsOnBits
 
         bool AreNotEqual(byte[] first, byte[] second)
         {
-            return !AreEqual(first , second);
+            return !AreEqual(first, second);
         }
 
+        byte[] Multiply (byte[] first, byte[] second)
+        {
+            byte[] result = new byte[Math.Max(first.Length, second.Length)];
+            do
+            {
+                result = Sum(result, first);
+                second = Difference(second, ConvertToBinary(1));
+            }
+            while (AreNotEqual(second, ConvertToBinary(0)));
+            return RemoveLeadingZeroes (result);
+        }
     }
 }
