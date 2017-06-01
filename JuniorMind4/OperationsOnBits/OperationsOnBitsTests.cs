@@ -130,7 +130,7 @@ namespace OperationsOnBits
         public void Division()
         {
             Assert.Equal(ConvertToBinary(3), Division(ConvertToBinary(6), ConvertToBinary(2)));
-            Assert.Equal(ConvertToBinary(7), Multiply(ConvertToBinary(28), ConvertToBinary(4)));
+            Assert.Equal(ConvertToBinary(7), Division(ConvertToBinary(28), ConvertToBinary(4)));
         }
 
         byte[] ConvertNumberToAnotherBase(int number, int convertedBase)
@@ -259,10 +259,9 @@ namespace OperationsOnBits
             {
                 Array.Resize(ref result, result.Length + 1);
                 result[result.Length - 1] = (byte)numberToRemember;
-                Array.Reverse(result);
-                return result;
             }
-            else return result;
+            Array.Reverse(result);
+            return result;
         }
 
         byte[] Difference(byte[] first, byte[] second)
