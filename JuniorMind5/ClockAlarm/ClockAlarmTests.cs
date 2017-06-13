@@ -40,7 +40,7 @@ namespace ClockAlarm
 
         bool AlarmTrigger(int hour, Days day, Alarm alarm)
         {
-            return false;
+            return ((day & alarm.day) != 0) && ((hour == alarm.hour));
         }
     }
 }
