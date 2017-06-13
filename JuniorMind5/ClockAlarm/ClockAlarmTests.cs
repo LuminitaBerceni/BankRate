@@ -15,6 +15,15 @@ namespace ClockAlarm
             Assert.AreEqual(true, AlarmTrigger(6, Days.Monday, AlarmForWeek));
         }
 
+        [TestMethod]
+        public void AlarmTestsForWeekend()
+        {
+            var AlarmForWeek = new Alarm { hour = 6, day = Days.Monday | Days.Tuesday | Days.Wednesday | Days.Thursday | Days.Friday };
+            var AlarmForWeekend = new Alarm { hour = 8, day = Days.Saturday | Days.Sunday };
+
+            Assert.AreEqual(true, AlarmTrigger(8, Days.Sunday, AlarmForWeekend));
+        }
+
         [Flags]
         enum Days
         {
