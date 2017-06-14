@@ -39,7 +39,15 @@ namespace ShoppingCart
         public void ExpensiveProductTest()
         {
             var products = new Product[] { new Product("Book", (decimal)2.5), new Product("CD", (decimal)1.5), new Product("Mug", (decimal)0.75), new Product("Frame", (decimal)1), new Product("Magnet", (decimal)0.5) };
-            Assert.AreEqual(products[0], FindExpensiveProduct(products));
+            Assert.AreEqual(0, FindExpensiveProduct(products));
+        }
+
+        [TestMethod]
+        public void EliminateExpensiveProductTest()
+        {
+            var products = new Product[] { new Product("Book", (decimal)2.5), new Product("CD", (decimal)1.5), new Product("Mug", (decimal)0.75), new Product("Frame", (decimal)1), new Product("Magnet", (decimal)0.5) };
+            EliminateExpensiveProduct(ref products);
+            Assert.IsTrue(products[0].name != "Book");
         }
 
         struct Product
@@ -88,7 +96,7 @@ namespace ShoppingCart
             products[products.Length - 1].price = (decimal)0.45;
         }
 
-        Product FindExpensiveProduct(Product[] products)
+        int FindExpensiveProduct(Product[] products)
         {
             int expensiveProductIndex = 0;
             for (int i = 1; i < products.Length; i++)
@@ -96,7 +104,16 @@ namespace ShoppingCart
                 if (products[i].price > products[expensiveProductIndex].price)
                     expensiveProductIndex = i;
             }
-            return products[expensiveProductIndex];
+            return expensiveProductIndex;
         }
+
+        void EliminateExpensiveProduct(ref Product[] products)
+        {
+            int expensiveProductIndex = FindExpensiveProduct(products);
+            for (int i = expensiveProductIndex; i < products.Length - 1; i++)
+                products[i] = products[i + 1];
+            Array.Resize(ref products, products.Length - 1);
+        }
+        
     }
 }
