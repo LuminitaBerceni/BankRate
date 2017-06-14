@@ -27,7 +27,12 @@ namespace ShoppingCart
 
         decimal CalculateTotalPayment( Product [] products)
         {
-            return 0;
+            decimal totalPayment = 0;
+            for (int i = 0; i < products.Length; i++)
+            {
+                totalPayment += products[i].price;
+            }
+            return totalPayment;
         }
     }
 }
