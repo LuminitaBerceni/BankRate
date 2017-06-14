@@ -20,6 +20,13 @@ namespace ShoppingCart
             Assert.AreEqual(products[4], FindCheapestProduct(products));
         }
 
+        [TestMethod]
+        public void MediumPriceTest()
+        {
+            var products = new Product[] { new Product("Book", (decimal)2.5), new Product("CD", (decimal)1.5), new Product("Mug", (decimal)0.75), new Product("Frame", (decimal)1), new Product("Magnet", (decimal)0.5) };
+            Assert.AreEqual((decimal)1.25, CalculateMediumPrice(products));
+        }
+
         struct Product
         {
             public string name;
@@ -52,6 +59,12 @@ namespace ShoppingCart
                     productIndex = i;
             }
             return products[productIndex];
+        }
+
+        decimal CalculateMediumPrice(Product[] products)
+        {
+            decimal total = CalculateTotalPayment(products);
+            return total / products.Length;
         }
     }
 }
