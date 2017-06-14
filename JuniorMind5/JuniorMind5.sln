@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockAlarm", "ClockAlarm\ClockAlarm.csproj", "{C0455D26-469F-4223-A395-5CB108691028}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart", "ShoppingCart\ShoppingCart.csproj", "{C3A7F740-47CF-462D-A682-CDA7FB4A7152}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C0455D26-469F-4223-A395-5CB108691028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0455D26-469F-4223-A395-5CB108691028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0455D26-469F-4223-A395-5CB108691028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3A7F740-47CF-462D-A682-CDA7FB4A7152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3A7F740-47CF-462D-A682-CDA7FB4A7152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3A7F740-47CF-462D-A682-CDA7FB4A7152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3A7F740-47CF-462D-A682-CDA7FB4A7152}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
