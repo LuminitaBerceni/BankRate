@@ -10,5 +10,17 @@ namespace ShoppingCart
         public void TestMethod1()
         {
         }
+
+        struct Product
+        {
+            public string name;
+            public decimal price;
+
+            public Product (string name , decimal price)
+            {
+                this.name = name;
+                this.price = price;
+            }
+        }
     }
 }
