@@ -59,14 +59,13 @@ namespace ShoppingCart
 
         Product FindCheapestProduct(Product[] products)
         {
-            decimal cheapestProduct = products[0].price;
-            int productIndex = 0;
+            int cheapestProductIndex = 0;
             for (int i = 1; i < products.Length; i++)
             {
-                if (products[i].price < cheapestProduct)
-                    productIndex = i;
+                if (products[i].price < products[cheapestProductIndex].price)
+                    cheapestProductIndex = i;
             }
-            return products[productIndex];
+            return products[cheapestProductIndex];
         }
 
         decimal CalculateMediumPrice(Product[] products)
