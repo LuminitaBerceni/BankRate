@@ -27,6 +27,14 @@ namespace ShoppingCart
             Assert.AreEqual((decimal)1.25, CalculateMediumPrice(products));
         }
 
+        [TestMethod]
+        public void AddNewProductTest()
+        {
+            var products = new Product[] { new Product("Book", (decimal)2.5), new Product("CD", (decimal)1.5), new Product("Mug", (decimal)0.75), new Product("Frame", (decimal)1), new Product("Magnet", (decimal)0.5) };
+            AddNewProduct(ref products);
+            Assert.IsTrue(products[products.Length - 1].name == "Gift bag");
+        }
+
         struct Product
         {
             public string name;
@@ -65,6 +73,13 @@ namespace ShoppingCart
         {
             decimal total = CalculateTotalPayment(products);
             return total / products.Length;
+        }
+
+        void AddNewProduct(ref Product[] products)
+        {
+            Array.Resize(ref products, products.Length + 1);
+            products[products.Length - 1].name = "Gift bag";
+            products[products.Length - 1].price = (decimal)0.45;
         }
     }
 }
