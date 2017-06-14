@@ -27,13 +27,13 @@ namespace ClockAlarm
         [Flags]
         enum Days
         {
-            Monday = 1,
-            Tuesday = 2,
-            Wednesday = 4,
-            Thursday = 8,
-            Friday = 10,
-            Saturday = 20,
-            Sunday = 40
+            Monday = 0x1,
+            Tuesday = 0x2,
+            Wednesday = 0x4,
+            Thursday = 0x8,
+            Friday = 0x10,
+            Saturday = 0x20,
+            Sunday = 0x40
         }
 
         struct Alarm
