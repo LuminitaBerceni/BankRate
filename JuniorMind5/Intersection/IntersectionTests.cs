@@ -21,5 +21,13 @@ namespace Intersection
                 this.y = y;
             }
         }
+
+        enum Directions
+        {
+            up,
+            down,
+            right,
+            left
+        }
     }
 }
