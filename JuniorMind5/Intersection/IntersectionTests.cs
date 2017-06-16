@@ -15,11 +15,21 @@ namespace Intersection
         {
             public int x;
             public int y;
+
             public Point(int x, int y)
             {
                 this.x = x;
                 this.y = y;
             }
+
+            public void GetDirections(Directions direction)
+            {
+                if (direction == Directions.up) y++;
+                if (direction == Directions.down) y--;
+                if (direction == Directions.right) x++;
+                if (direction == Directions.left) x--;
+            }
+
         }
 
         enum Directions
@@ -29,5 +39,7 @@ namespace Intersection
             right,
             left
         }
+
+        
     }
 }
