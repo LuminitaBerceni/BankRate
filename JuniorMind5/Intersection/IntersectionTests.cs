@@ -7,8 +7,9 @@ namespace Intersection
     public class IntersectionTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Intersection1Test()
         {
+            Assert.AreEqual(new Point(2, 1), GetFirstIntersection(new Point(2, 1), new Directions[] { Directions.up, Directions.right, Directions.down, Directions.left }));
         }
 
         struct Point
@@ -40,6 +41,9 @@ namespace Intersection
             left
         }
 
-        
+        Point GetFirstIntersection(Point point, Directions[] directions)
+        {
+            return new Point(0, 0);
+        }
     }
 }
