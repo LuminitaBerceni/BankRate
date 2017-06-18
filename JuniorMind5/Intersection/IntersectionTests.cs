@@ -14,6 +14,14 @@ namespace Intersection
                 new Directions[] { Directions.up, Directions.right, Directions.down, Directions.left, Directions.up }));
         }
 
+        [Fact]
+        public void Intersection2Test()
+        {
+            Assert.Equal(new Point(2, 3),
+                GetFirstIntersection(new Point(1, 1),
+                new Directions[] { Directions.up, Directions.up, Directions.right, Directions.right, Directions.down, Directions.left, Directions.up, Directions.up }));
+        }
+
         struct Point
         {
             public int x;
