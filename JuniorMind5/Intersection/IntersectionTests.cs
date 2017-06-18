@@ -22,6 +22,14 @@ namespace Intersection
                 new Directions[] { Directions.up, Directions.up, Directions.right, Directions.right, Directions.down, Directions.left, Directions.up, Directions.up }));
         }
 
+        [Fact]
+        public void NoIntersectionTest()
+        {
+            Assert.Equal(new Point(0,0),
+                GetFirstIntersection(new Point(1, 2),
+                new Directions[] { Directions.right, Directions.down, Directions.right, Directions.up, Directions.right}));
+        }
+
         struct Point
         {
             public int x;
@@ -56,7 +64,7 @@ namespace Intersection
             Point[] checkPoints = new Point[directions.Length + 1];
             checkPoints[0] = point;
 
-            for (int i = 0; i <= directions.Length; i++)
+            for (int i = 0; i < directions.Length; i++)
             {
                 point.GetDirections(directions[i]);
                 checkPoints[i+1] = point;
