@@ -1,15 +1,17 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Intersection
 {
-    [TestClass]
+
     public class IntersectionTests
     {
-        [TestMethod]
+        [Fact]
         public void Intersection1Test()
         {
-            Assert.AreEqual(new Point(2, 1), GetFirstIntersection(new Point(2, 1), new Directions[] { Directions.up, Directions.right, Directions.down, Directions.left }));
+            Assert.Equal(new Point(1, 2),
+                GetFirstIntersection(new Point(1, 2),
+                new Directions[] { Directions.up, Directions.right, Directions.down, Directions.left, Directions.up }));
         }
 
         struct Point
@@ -43,7 +45,34 @@ namespace Intersection
 
         Point GetFirstIntersection(Point point, Directions[] directions)
         {
-            return new Point(0, 0);
+            Point[] checkPoints = new Point[directions.Length + 1];
+            checkPoints[0] = point;
+
+            for (int i = 0; i <= directions.Length; i++)
+            {
+                point.GetDirections(directions[i]);
+                checkPoints[i+1] = point;
+
+                if(CheckIntersection(point, checkPoints))
+                    return point;
+            }
+
+            return new Point(0,0);
         }
+        
+        bool CheckIntersection(Point point, Point[] checkPoints)
+        {
+            int counter = 0;
+            foreach (var savedPoint in checkPoints)
+            {
+                if (savedPoint.x == point.x && savedPoint.y == point.y)
+                    counter++;
+            }
+            return (counter > 1);
+        }
+
     }
+
 }
+    
+
