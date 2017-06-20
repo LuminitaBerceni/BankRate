@@ -9,16 +9,25 @@ namespace Password
         [TestMethod]
         public void PasswordWithSmallLetters()
         {
-            string password = GenerateRandomLetters(6, 'a', 'z');
+            string password = GenerateRandomLettersAndDigits(6, 'a', 'z');
             Assert.AreEqual(6, VerifySmallLetters(password, 'a', 'z'));
         }
 
         [TestMethod]
         public void PasswordWithSmallAndCapitalLetters()
         {
-            string password = GenerateRandomLetters(3, 'a', 'z') + GenerateRandomLetters(3, 'A', 'Z');
+            string password = GenerateRandomLettersAndDigits(3, 'a', 'z') + GenerateRandomLettersAndDigits(3, 'A', 'Z');
             Assert.AreEqual(3, VerifySmallLetters(password, 'a', 'z'));
             Assert.AreEqual(3, VerifySmallLetters(password, 'A', 'Z'));
+        }
+
+        [TestMethod]
+        public void PasswordWithSmallCapitalLettersAndDigits()
+        {
+            string password = GenerateRandomLettersAndDigits(2, 'a', 'z') + GenerateRandomLettersAndDigits(1, 'A', 'Z') + GenerateRandomLettersAndDigits(1,'0', '9');
+            Assert.AreEqual(1, VerifySmallLetters(password, 'A', 'Z'));
+            Assert.AreEqual(2, VerifySmallLetters(password, 'a', 'z'));
+            Assert.AreEqual(1, VerifySmallLetters(password, '0', '9'));
         }
 
         struct Password
@@ -49,7 +58,7 @@ namespace Password
             return (char)(random.Next(lowerLimit, upperLimit + 1));
         }
 
-        string GenerateRandomLetters(int nrOfLetters, char lowerLimit, char upperLimit)
+        string GenerateRandomLettersAndDigits(int nrOfLetters, char lowerLimit, char upperLimit)
         {
             string password = "";
             for (int i = 0; i < nrOfLetters; i++)
