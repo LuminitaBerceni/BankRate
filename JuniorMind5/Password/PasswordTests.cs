@@ -9,8 +9,16 @@ namespace Password
         [TestMethod]
         public void PasswordWithSmallLetters()
         {
-            string password = GenerateRandomSmallLetters(6, 'a', 'z');
+            string password = GenerateRandomLetters(6, 'a', 'z');
             Assert.AreEqual(6, VerifySmallLetters(password, 'a', 'z'));
+        }
+
+        [TestMethod]
+        public void PasswordWithSmallAndCapitalLetters()
+        {
+            string password = GenerateRandomLetters(3, 'a', 'z') + GenerateRandomLetters(3, 'A', 'Z');
+            Assert.AreEqual(3, VerifySmallLetters(password, 'a', 'z'));
+            Assert.AreEqual(3, VerifySmallLetters(password, 'A', 'Z'));
         }
 
         struct Password
@@ -41,7 +49,7 @@ namespace Password
             return (char)(random.Next(lowerLimit, upperLimit + 1));
         }
 
-        string GenerateRandomSmallLetters(int nrOfLetters, char lowerLimit, char upperLimit)
+        string GenerateRandomLetters(int nrOfLetters, char lowerLimit, char upperLimit)
         {
             string password = "";
             for (int i = 0; i < nrOfLetters; i++)
