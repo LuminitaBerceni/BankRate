@@ -7,8 +7,10 @@ namespace Password
     public class PasswordTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void PasswordWithSmallLetters()
         {
+            string password = GenerateRandomSmallLetters(6, 'a', 'z');
+            Assert.AreEqual(6, VerifySmallLetters(password, 'a', 'z'));
         }
 
         struct Password
@@ -30,6 +32,32 @@ namespace Password
                 this.exludeSimilarCharacters = exludeSimilarCharacters;
                 this.excludeAmbiguousCharacters = excludeAmbiguousCharacters;
             }
+        }
+
+        Random random = new Random();
+
+        char GenerateRandomCharacter(char lowerLimit, char upperLimit)
+        {
+            return (char)(random.Next(lowerLimit, upperLimit + 1));
+        }
+
+        string GenerateRandomSmallLetters(int nrOfLetters, char lowerLimit, char upperLimit)
+        {
+            string password = "";
+            for (int i = 0; i < nrOfLetters; i++)
+            {
+                password += GenerateRandomCharacter(lowerLimit, upperLimit);
+            }
+            return password;
+        }
+
+        int VerifySmallLetters(string password, char lowerLimit, char upperLimit)
+        {
+            int counter = 0;
+            foreach (char c in password)
+                if (lowerLimit <= c && c <= upperLimit)
+                    counter++;
+            return counter;
         }
     }
 }
