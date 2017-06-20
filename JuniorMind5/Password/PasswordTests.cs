@@ -9,14 +9,14 @@ namespace Password
         [TestMethod]
         public void PasswordWithSmallLetters()
         {
-            string password = GenerateRandomLettersAndDigits(6, 'a', 'z');
+            string password = AddRandomCharacter(6, 'a', 'z');
             Assert.AreEqual(6, VerifySmallLetters(password, 'a', 'z'));
         }
 
         [TestMethod]
         public void PasswordWithSmallAndCapitalLetters()
         {
-            string password = GenerateRandomLettersAndDigits(3, 'a', 'z') + GenerateRandomLettersAndDigits(3, 'A', 'Z');
+            string password = AddRandomCharacter(3, 'a', 'z') + AddRandomCharacter(3, 'A', 'Z');
             Assert.AreEqual(3, VerifySmallLetters(password, 'a', 'z'));
             Assert.AreEqual(3, VerifySmallLetters(password, 'A', 'Z'));
         }
@@ -24,7 +24,17 @@ namespace Password
         [TestMethod]
         public void PasswordWithSmallCapitalLettersAndDigits()
         {
-            string password = GenerateRandomLettersAndDigits(2, 'a', 'z') + GenerateRandomLettersAndDigits(1, 'A', 'Z') + GenerateRandomLettersAndDigits(1,'0', '9');
+            string password = AddRandomCharacter(2, 'a', 'z') + AddRandomCharacter(1, 'A', 'Z') + AddRandomCharacter(1,'0', '9');
+            Assert.AreEqual(1, VerifySmallLetters(password, 'A', 'Z'));
+            Assert.AreEqual(2, VerifySmallLetters(password, 'a', 'z'));
+            Assert.AreEqual(1, VerifySmallLetters(password, '0', '9'));
+        }
+
+        [TestMethod]
+        public void PasswordWithSmallCapitalLettersAndDigits2()
+        {
+            Password passwordOptions = new Password(4, 2, 1, 1, 0, false, false);
+            string password = GeneratePassword(passwordOptions);
             Assert.AreEqual(1, VerifySmallLetters(password, 'A', 'Z'));
             Assert.AreEqual(2, VerifySmallLetters(password, 'a', 'z'));
             Assert.AreEqual(1, VerifySmallLetters(password, '0', '9'));
@@ -53,12 +63,19 @@ namespace Password
 
         Random random = new Random();
 
+        string GeneratePassword (Password password)
+        {
+            return AddRandomCharacter(password.capitalLetters, 'A', 'Z') +
+                AddRandomCharacter(password.smallLetters, 'a', 'z') +
+                AddRandomCharacter(password.digits, '0', '9');
+        }
+
         char GenerateRandomCharacter(char lowerLimit, char upperLimit)
         {
             return (char)(random.Next(lowerLimit, upperLimit + 1));
         }
 
-        string GenerateRandomLettersAndDigits(int nrOfLetters, char lowerLimit, char upperLimit)
+        string AddRandomCharacter(int nrOfLetters, char lowerLimit, char upperLimit)
         {
             string password = "";
             for (int i = 0; i < nrOfLetters; i++)
