@@ -60,7 +60,19 @@ namespace Password
             Assert.Equal(5, VerifyCharacter(password, 'a', 'z'));
             Assert.Equal(2, VerifyCharacter(password, '0', '9'));
             Assert.Equal(1, VerifySymbol(password));
-            Assert.Equal(passwordOptions.exludeSimilarCharacters, VerifySimilar(password));
+            Assert.Equal(passwordOptions.exludeSimilarCharacters, VerifySimilarAndAmbiguous(password));
+        }
+
+        [Fact]
+        public void PasswordWithouthSimilarAndAmbiguousCharacters()
+        {
+            Password passwordOptions = new Password(8, 5, 1, 2, 1, true, true);
+            string password = GeneratePassword(passwordOptions);
+            Assert.Equal(1, VerifyCharacter(password, 'A', 'Z'));
+            Assert.Equal(5, VerifyCharacter(password, 'a', 'z'));
+            Assert.Equal(2, VerifyCharacter(password, '0', '9'));
+            Assert.Equal(1, VerifySymbol(password));
+            Assert.Equal(passwordOptions.exludeSimilarCharacters, VerifySimilarAndAmbiguous(password));
         }
 
         struct Password
@@ -90,7 +102,7 @@ namespace Password
         {
             return AddRandomCharacter(password.capitalLetters, 'A', 'Z', password.exludeSimilarCharacters) +
                 AddRandomCharacter(password.smallLetters, 'a', 'z', password.exludeSimilarCharacters) +
-                AddRandomSymbols(password.symbols) +
+                AddRandomSymbols(password.symbols, password.excludeAmbiguousCharacters) +
                 AddRandomCharacter(password.digits, '0', '9', password.exludeSimilarCharacters);
         }
 
@@ -116,13 +128,20 @@ namespace Password
             return password;
         }
 
-        string AddRandomSymbols(int nrOfSymbols)
+        string AddRandomSymbols(int nrOfSymbols, bool ambiguous)
         {
             string symbols = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~" + '"';
+            string ambiguousCharacters = "{}[]()/\'~,;.<>" + '"';
             string password = "";
             for (int i = 0; i < nrOfSymbols; i++)
             {
-                password += symbols[random.Next(0, 31)];
+                char symbol = symbols[random.Next(0, 31)];
+                if (ambiguous && ambiguousCharacters.Contains(symbol.ToString()))
+                {
+                    i--;
+                    continue;
+                }
+                password += symbol;
             }
             return password;
         }
@@ -147,9 +166,9 @@ namespace Password
             return counter;
         }
 
-        bool VerifySimilar(string password)
+        bool VerifySimilarAndAmbiguous(string password)
         {
-            string similarCharacters = "l1Io0O";
+            string similarCharacters = "l1Io0O{}[]()/\'~,;.<>" + '"';
             for (int i = 0; i < password.Length; i++)
             {
                 if (password.IndexOf(similarCharacters) != -1)
