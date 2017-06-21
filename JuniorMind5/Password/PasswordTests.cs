@@ -1,54 +1,66 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Password
 {
-    [TestClass]
+    
     public class PasswordTests
     {
-        [TestMethod]
+        [Fact]
         public void PasswordWithSmallLetters()
         {
-            string password = AddRandomCharacter(6, 'a', 'z');
-            Assert.AreEqual(6, VerifyCharacter(password, 'a', 'z'));
+            string password = AddRandomCharacter(6, 'a', 'z', false);
+            Assert.Equal(6, VerifyCharacter(password, 'a', 'z'));
         }
 
-        [TestMethod]
+        [Fact]
         public void PasswordWithSmallAndCapitalLetters()
         {
-            string password = AddRandomCharacter(3, 'a', 'z') + AddRandomCharacter(3, 'A', 'Z');
-            Assert.AreEqual(3, VerifyCharacter(password, 'a', 'z'));
-            Assert.AreEqual(3, VerifyCharacter(password, 'A', 'Z'));
+            string password = AddRandomCharacter(3, 'a', 'z', false) + AddRandomCharacter(3, 'A', 'Z', false);
+            Assert.Equal(3, VerifyCharacter(password, 'a', 'z'));
+            Assert.Equal(3, VerifyCharacter(password, 'A', 'Z'));
         }
 
-        [TestMethod]
+        [Fact]
         public void PasswordWithSmallCapitalLettersAndDigits()
         {
-            string password = AddRandomCharacter(2, 'a', 'z') + AddRandomCharacter(1, 'A', 'Z') + AddRandomCharacter(1,'0', '9');
-            Assert.AreEqual(1, VerifyCharacter(password, 'A', 'Z'));
-            Assert.AreEqual(2, VerifyCharacter(password, 'a', 'z'));
-            Assert.AreEqual(1, VerifyCharacter(password, '0', '9'));
+            string password = AddRandomCharacter(2, 'a', 'z', false) + AddRandomCharacter(1, 'A', 'Z', false) + AddRandomCharacter(1,'0', '9', false);
+            Assert.Equal(1, VerifyCharacter(password, 'A', 'Z'));
+            Assert.Equal(2, VerifyCharacter(password, 'a', 'z'));
+            Assert.Equal(1, VerifyCharacter(password, '0', '9'));
         }
 
-        [TestMethod]
+        [Fact]
         public void PasswordWithSmallCapitalLettersAndDigits2()
         {
             Password passwordOptions = new Password(4, 2, 1, 1, 0, false, false);
             string password = GeneratePassword(passwordOptions);
-            Assert.AreEqual(1, VerifyCharacter(password, 'A', 'Z'));
-            Assert.AreEqual(2, VerifyCharacter(password, 'a', 'z'));
-            Assert.AreEqual(1, VerifyCharacter(password, '0', '9'));
+            Assert.Equal(1, VerifyCharacter(password, 'A', 'Z'));
+            Assert.Equal(2, VerifyCharacter(password, 'a', 'z'));
+            Assert.Equal(1, VerifyCharacter(password, '0', '9'));
         }
 
-        [TestMethod]
+        [Fact]
         public void PasswordWithSmallCapitalLettersDigitsAndSymbols()
         {
             Password passwordOptions = new Password(8, 5, 1, 2, 1, false, false);
             string password = GeneratePassword(passwordOptions);
-            Assert.AreEqual(1, VerifyCharacter(password, 'A', 'Z'));
-            Assert.AreEqual(5, VerifyCharacter(password, 'a', 'z'));
-            Assert.AreEqual(2, VerifyCharacter(password, '0', '9'));
-            Assert.AreEqual(1, VerifySymbol(password));
+            Assert.Equal(1, VerifyCharacter(password, 'A', 'Z'));
+            Assert.Equal(5, VerifyCharacter(password, 'a', 'z'));
+            Assert.Equal(2, VerifyCharacter(password, '0', '9'));
+            Assert.Equal(1, VerifySymbol(password));
+        }
+
+        [Fact]
+        public void PasswordWithouthSimilarCharacters()
+        {
+            Password passwordOptions = new Password(8, 5, 1, 2, 1, true, false);
+            string password = GeneratePassword(passwordOptions);
+            Assert.Equal(1, VerifyCharacter(password, 'A', 'Z'));
+            Assert.Equal(5, VerifyCharacter(password, 'a', 'z'));
+            Assert.Equal(2, VerifyCharacter(password, '0', '9'));
+            Assert.Equal(1, VerifySymbol(password));
+            Assert.Equal(passwordOptions.exludeSimilarCharacters, VerifySimilar(password));
         }
 
         struct Password
@@ -76,10 +88,10 @@ namespace Password
 
         string GeneratePassword (Password password)
         {
-            return AddRandomCharacter(password.capitalLetters, 'A', 'Z') +
-                AddRandomCharacter(password.smallLetters, 'a', 'z') +
+            return AddRandomCharacter(password.capitalLetters, 'A', 'Z', password.exludeSimilarCharacters) +
+                AddRandomCharacter(password.smallLetters, 'a', 'z', password.exludeSimilarCharacters) +
                 AddRandomSymbols(password.symbols) +
-                AddRandomCharacter(password.digits, '0', '9');
+                AddRandomCharacter(password.digits, '0', '9', password.exludeSimilarCharacters);
         }
 
         char GenerateRandomCharacter(char lowerLimit, char upperLimit)
@@ -87,12 +99,19 @@ namespace Password
             return (char)(random.Next(lowerLimit, upperLimit + 1));
         }
 
-        string AddRandomCharacter(int nrOfLetters, char lowerLimit, char upperLimit)
+        string AddRandomCharacter(int nrOfCharacters, char lowerLimit, char upperLimit, bool similar)
         {
             string password = "";
-            for (int i = 0; i < nrOfLetters; i++)
+            string similarCharacters = "l1Io0O";
+            for (int i = 0; i < nrOfCharacters; i++)
             {
-                password += GenerateRandomCharacter(lowerLimit, upperLimit);
+                char character = (char) GenerateRandomCharacter(lowerLimit, upperLimit);
+                if (similar && similarCharacters.Contains(character.ToString()))
+                {
+                    i--;
+                    continue;
+                }
+                password += character;
             }
             return password;
         }
@@ -126,6 +145,18 @@ namespace Password
                     counter++;
             }
             return counter;
+        }
+
+        bool VerifySimilar(string password)
+        {
+            string similarCharacters = "l1Io0O";
+            for (int i = 0; i < password.Length; i++)
+            {
+                if (password.IndexOf(similarCharacters) != -1)
+                    return false;
+            }
+            return true;
+            
         }
     }
 }
