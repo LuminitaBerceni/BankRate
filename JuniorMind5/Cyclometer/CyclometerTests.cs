@@ -60,6 +60,18 @@ namespace Cyclometer
             }
         }
 
+        struct ResultedCyclist
+        {
+            public string name;
+            public int second;
+
+            public ResultedCyclist(string name, int second)
+            {
+                this.name = name;
+                this.second = second;
+            }
+        }
+
         double CalculateTotalDistance(Cyclist[] cyclists)
         {
             double totalDistance = 0;
