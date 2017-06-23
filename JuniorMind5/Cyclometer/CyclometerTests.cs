@@ -11,7 +11,7 @@ namespace Cyclometer
 
         {
             var cyclist = new Cyclist("Florin", 20, new Cyclometer[] { new Cyclometer(2, 1), new Cyclometer(3, 2), new Cyclometer(4, 3) });
-            Assert.AreEqual(565.2, CalculateTotalDistanceForOneCyclist(cyclist));
+            Assert.AreEqual(565.2, cyclist.CalculateTotalDistance());
         }
 
         [TestMethod]
@@ -36,6 +36,16 @@ namespace Cyclometer
                 this.records = records;
             }
 
+            public double CalculateTotalDistance()
+            {
+                double totalDistance = 0;
+                for (int i = 0; i < records.Length; i++)
+                {
+                    totalDistance += 3.14 * wheelDiameter * records[i].rotations;
+                }
+                return totalDistance;
+            }
+
         }
 
         struct Cyclometer
@@ -50,22 +60,12 @@ namespace Cyclometer
             }
         }
 
-        double CalculateTotalDistanceForOneCyclist(Cyclist cyclist)
-        {
-            double totalDistance = 0;
-            for (int i = 0; i < cyclist.records.Length; i++)
-            {
-                totalDistance += 3.14 * cyclist.wheelDiameter * cyclist.records[i].rotations;
-            }
-            return totalDistance;
-        }
-
         double CalculateTotalDistance(Cyclist[] cyclists)
         {
             double totalDistance = 0;
             for (int i = 0; i < cyclists.Length; i++)
             {
-                totalDistance += CalculateTotalDistanceForOneCyclist(cyclists[i]);
+                totalDistance += cyclists[i].CalculateTotalDistance();
             }
             return totalDistance;
         }
