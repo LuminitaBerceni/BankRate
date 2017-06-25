@@ -33,6 +33,18 @@ namespace Cyclometer
             Assert.AreEqual(3, result.second);
         }
 
+        [TestMethod]
+        public void GetFastestCyclist()
+
+        {
+            Cyclist[] cyclists = new Cyclist[] {new Cyclist("Florin", 20, new Cyclometer[] { new Cyclometer(2, 1), new Cyclometer(3, 2), new Cyclometer(4, 3) }),
+                                                new Cyclist("George", 25, new Cyclometer[] { new Cyclometer(3, 1), new Cyclometer(2, 2), new Cyclometer(2, 3) }),
+                                                new Cyclist("Alex", 22, new Cyclometer[] { new Cyclometer(5, 1), new Cyclometer(4, 2), new Cyclometer(4, 3) })};
+            var result = FindFastestCyclist(cyclists);
+            Assert.AreEqual("Alex", result.name);
+            Assert.AreEqual(1, result.second);
+        }
+
         struct Cyclist
         {
             public string name;
@@ -102,5 +114,25 @@ namespace Cyclometer
             }
             return totalDistance;
         }
+
+        ResultedCyclist FindFastestCyclist(Cyclist[] cyclists)
+        {
+            ResultedCyclist result = new ResultedCyclist("", 0);
+            double maximumDistance = 3.14 * cyclists[0].wheelDiameter * cyclists[0].GetMaximRotation().rotations;
+            int second = cyclists[0].GetMaximRotation().second;
+
+            for (int i = 0; i < cyclists.Length; i++)
+            {
+                double distance = 3.14 * cyclists[i].wheelDiameter * cyclists[i].GetMaximRotation().rotations;
+                if (distance > maximumDistance)
+                {
+                    maximumDistance = distance;
+                    result.name = cyclists[i].name;
+                    result.second = cyclists[i].GetMaximRotation().second;
+                }
+            }
+            return result;
+        }
+
     }
 }
