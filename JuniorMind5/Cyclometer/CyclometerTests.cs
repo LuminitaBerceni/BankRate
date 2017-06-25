@@ -23,6 +23,16 @@ namespace Cyclometer
             Assert.AreEqual(1114.7, CalculateTotalDistance(cyclists));
         }
 
+        [TestMethod]
+        public void GetMaximRotationForOneCyclist()
+
+        {
+            var cyclist = new Cyclist("Florin", 20, new Cyclometer[] { new Cyclometer(2, 1), new Cyclometer(3, 2), new Cyclometer(4, 3) });
+            var result = cyclist.GetMaximRotation();
+            Assert.AreEqual(4, result.rotations);
+            Assert.AreEqual(3, result.second);
+        }
+
         struct Cyclist
         {
             public string name;
@@ -46,17 +56,28 @@ namespace Cyclometer
                 return totalDistance;
             }
 
+            public Cyclometer GetMaximRotation()
+            {
+                Cyclometer maxRotations = new Cyclometer(records[0].rotations, records[0].second);
+                for (int i = 0; i < records.Length; i++)
+                {
+                    if (records[i].rotations > maxRotations.rotations)
+                        maxRotations = new Cyclometer(records[i].rotations, records[i].second);
+                }
+                return maxRotations;
+            }
+
         }
 
         struct Cyclometer
         {
             public int rotations;
-            public int seconds;
+            public int second;
 
             public Cyclometer(int rotations, int seconds)
             {
                 this.rotations = rotations;
-                this.seconds = seconds;
+                this.second = seconds;
             }
         }
 
