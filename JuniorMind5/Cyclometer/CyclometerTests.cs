@@ -45,6 +45,15 @@ namespace Cyclometer
             Assert.AreEqual(1, result.second);
         }
 
+        [TestMethod]
+        public void GetAverageSpeedForOneCyclist()
+
+        {
+            var cyclist = new Cyclist("Florin", 20, new Cyclometer[] { new Cyclometer(2, 1), new Cyclometer(3, 2), new Cyclometer(4, 3) });
+            var result = cyclist.CalculateAverageSpeed();
+            Assert.AreEqual(188.4, result);
+        }
+
         struct Cyclist
         {
             public string name;
@@ -77,6 +86,12 @@ namespace Cyclometer
                         maxRotations = new Cyclometer(records[i].rotations, records[i].second);
                 }
                 return maxRotations;
+            }
+
+            public double CalculateAverageSpeed()
+            {
+                int totalTime = records[records.Length - 1].second;
+                return CalculateTotalDistance() / totalTime;
             }
 
         }
@@ -133,6 +148,27 @@ namespace Cyclometer
             }
             return result;
         }
+
+        /*double CalculateAverageSpeed(Cyclist cyclist)
+        {
+            double distance = CalculateTotalDistanceOfOneCyclist(cyclist);
+            double averageSpeed = 0;
+            int totalTime = cyclist.records[cyclist.records.Length - 1].second;
+            averageSpeed += distance / totalTime;
+            return averageSpeed;
+        }
+
+        double CalculateBestAverageSpeed(Cyclist[] cyclists)
+        {
+            double bestAverageSpeed = CalculateAverageSpeed(cyclists[0]);
+            for (int i = 0; i < cyclists.Length; i++)
+            {
+                double speed = CalculateAverageSpeed(cyclists[i]);
+                if (speed > bestAverageSpeed)
+                    bestAverageSpeed = speed;
+            }
+            return bestAverageSpeed;
+        }*/
 
     }
 }
