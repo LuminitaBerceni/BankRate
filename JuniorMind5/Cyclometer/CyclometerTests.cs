@@ -54,6 +54,17 @@ namespace Cyclometer
             Assert.AreEqual(188.4, result);
         }
 
+        [TestMethod]
+        public void GetCyclistWithBestAverageSpeed()
+
+        {
+            Cyclist[] cyclists = new Cyclist[] {new Cyclist("Florin", 20, new Cyclometer[] { new Cyclometer(2, 1), new Cyclometer(3, 2), new Cyclometer(4, 3) }),
+                                                new Cyclist("George", 25, new Cyclometer[] { new Cyclometer(3, 1), new Cyclometer(2, 2), new Cyclometer(2, 3) }),
+                                                new Cyclist("Alex", 22, new Cyclometer[] { new Cyclometer(5, 1), new Cyclometer(4, 2), new Cyclometer(4, 3) })};
+            var result = FindCyclistWithBestAverageSpeed(cyclists);
+            Assert.AreEqual("Alex", result);
+        }
+
         struct Cyclist
         {
             public string name;
@@ -149,26 +160,20 @@ namespace Cyclometer
             return result;
         }
 
-        /*double CalculateAverageSpeed(Cyclist cyclist)
+        string FindCyclistWithBestAverageSpeed(Cyclist[] cyclists)
         {
-            double distance = CalculateTotalDistanceOfOneCyclist(cyclist);
-            double averageSpeed = 0;
-            int totalTime = cyclist.records[cyclist.records.Length - 1].second;
-            averageSpeed += distance / totalTime;
-            return averageSpeed;
-        }
-
-        double CalculateBestAverageSpeed(Cyclist[] cyclists)
-        {
-            double bestAverageSpeed = CalculateAverageSpeed(cyclists[0]);
+            string result = "";
+            double bestAverageSpeed = cyclists[0].CalculateAverageSpeed();
             for (int i = 0; i < cyclists.Length; i++)
             {
-                double speed = CalculateAverageSpeed(cyclists[i]);
-                if (speed > bestAverageSpeed)
-                    bestAverageSpeed = speed;
+                if (cyclists[i].CalculateAverageSpeed() > bestAverageSpeed)
+                {
+                    bestAverageSpeed = cyclists[i].CalculateAverageSpeed();
+                    result = cyclists[i].name;
+                }
             }
-            return bestAverageSpeed;
-        }*/
+            return result;
+        }
 
     }
 }
