@@ -14,7 +14,13 @@ namespace Hanoi_Towers
 
         string HanoiTowers(int disks, char leftTower, char middleTower, char rightTower)
         {
-            return "";
+            string moves = string.Empty;
+            if (disks == 1)
+                return Convert.ToString(leftTower) + Convert.ToString(rightTower);
+            moves = moves + HanoiTowers(disks - 1, leftTower, rightTower, middleTower);
+            moves = moves + " " + HanoiTowers(1, leftTower, middleTower, rightTower);
+            moves = moves + " " + HanoiTowers(disks - 1, middleTower, leftTower, rightTower);
+            return moves;
         }
     }
 }
