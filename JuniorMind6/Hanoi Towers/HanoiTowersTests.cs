@@ -12,6 +12,12 @@ namespace Hanoi_Towers
             Assert.AreEqual("SM SD MD", HanoiTowers(2, 'S', 'M', 'D'));
         }
 
+        [TestMethod]
+        public void MovesForThreeDisks()
+        {
+            Assert.AreEqual("SD SM DM SD MS MD SD", HanoiTowers(3, 'S', 'M', 'D'));
+        }
+
         string HanoiTowers(int disks, char leftTower, char middleTower, char rightTower)
         {
             string moves = string.Empty;
