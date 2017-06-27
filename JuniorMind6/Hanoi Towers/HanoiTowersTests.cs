@@ -7,8 +7,14 @@ namespace Hanoi_Towers
     public class HanoiTowersTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void MovesForTwoDisks()
         {
+            Assert.AreEqual("SM SD MD", HanoiTowers(2, 'S', 'M', 'D'));
+        }
+
+        string HanoiTowers(int disks, char leftTower, char middleTower, char rightTower)
+        {
+            return "";
         }
     }
 }
