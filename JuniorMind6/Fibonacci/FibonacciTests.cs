@@ -18,6 +18,12 @@ namespace Fibonacci
             Assert.AreEqual(8, Fibonacci(6));
         }
 
+        [TestMethod]
+        public void FibonacciTest3()
+        {
+            Assert.AreEqual(610, Fibonacci(15));
+        }
+
         int Fibonacci(int n)
         {
             int previous = 0;
