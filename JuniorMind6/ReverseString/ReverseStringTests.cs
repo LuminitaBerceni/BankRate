@@ -12,6 +12,12 @@ namespace ReverseString
             Assert.AreEqual("ba" , ReverseString("ab"));
         }
 
+        [TestMethod]
+        public void ReverseLongString()
+        {
+            Assert.AreEqual("adenom", ReverseString("moneda"));
+        }
+
         string ReverseString (string initialString)
         {
             if (initialString.Length == 1)
