@@ -7,8 +7,14 @@ namespace ReverseString
     public class ReverseStringTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ReverseStringWith2Characters()
         {
+            Assert.AreEqual("ba" , ReverseString("ab"));
+        }
+
+        string ReverseString (string initialString)
+        {
+            return "";
         }
     }
 }
