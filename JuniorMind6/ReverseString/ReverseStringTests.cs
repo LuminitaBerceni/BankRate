@@ -14,7 +14,9 @@ namespace ReverseString
 
         string ReverseString (string initialString)
         {
-            return "";
+            if (initialString.Length == 1)
+                return initialString;
+            return initialString.Substring(initialString.Length - 1) + ReverseString (initialString.Substring(0,initialString.Length - 1));
         }
     }
 }
