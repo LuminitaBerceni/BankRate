@@ -12,6 +12,12 @@ namespace FindAndReplace
             Assert.AreEqual("aba", FindAndReplace("axa", 'x', "b"));
         }
 
+        [TestMethod]
+        public void ReplaceMoreCharacters()
+        {
+            Assert.AreEqual("astrologie", FindAndReplace("xasxtroxloxgiexxx", 'x', ""));
+        }
+
         string FindAndReplace(string initialString, char replacedCharacter, string replaceString)
         {
             if(initialString.Length > 0)
