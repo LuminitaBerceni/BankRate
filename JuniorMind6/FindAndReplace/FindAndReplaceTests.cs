@@ -7,8 +7,14 @@ namespace FindAndReplace
     public class FindAndReplaceTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ReplaceOneCharacter()
         {
+            Assert.AreEqual("aba", FindAndReplace("axa", 'x', "b"));
+        }
+
+        string FindAndReplace(string initialString, char replacedCharacter, string replaceString)
+        {
+            return "";
         }
     }
 }
