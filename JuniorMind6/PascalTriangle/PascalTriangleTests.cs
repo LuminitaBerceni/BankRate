@@ -24,6 +24,12 @@ namespace PascalTriangle
             Assert.Equal(new int[] { 1, 2, 1 } , GeneratePascalTriangle(3));
         }
 
+        [Fact]
+        public void PascalTriangleLine4()
+        {
+            Assert.Equal(new int[] { 1, 3, 3, 1 }, GeneratePascalTriangle(4));
+        }
+
         int [] GeneratePascalTriangle (int line)
         {
             int[] result = new int[line];
