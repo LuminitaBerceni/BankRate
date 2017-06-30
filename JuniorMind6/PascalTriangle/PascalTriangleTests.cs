@@ -13,6 +13,12 @@ namespace PascalTriangle
         }
 
         [Fact]
+        public void PascalTriangleLine2()
+        {
+            Assert.Equal(new int[] { 1, 1 }, GeneratePascalTriangle(2));
+        }
+
+        [Fact]
         public void PascalTriangleLine3()
         {
             Assert.Equal(new int[] { 1, 2, 1 } , GeneratePascalTriangle(3));
