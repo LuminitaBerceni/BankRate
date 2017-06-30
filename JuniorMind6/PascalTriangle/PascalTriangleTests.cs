@@ -1,14 +1,20 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace PascalTriangle
 {
-    [TestClass]
+    
     public class PascalTriangleTests
     {
-        [TestMethod]
-        public void TestMethod1()
+        [Fact]
+        public void PascalTriangleLine3()
         {
+            Assert.Equal(new int[] { 1, 2, 1 } , GeneratePascalTriangle(3));
+        }
+
+        int [] GeneratePascalTriangle (int line)
+        {
+            return new int[] {0};
         }
     }
 }
