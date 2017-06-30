@@ -7,6 +7,12 @@ namespace PascalTriangle
     public class PascalTriangleTests
     {
         [Fact]
+        public void PascalTriangleLine1()
+        {
+            Assert.Equal(new int[] { 1 }, GeneratePascalTriangle(1));
+        }
+
+        [Fact]
         public void PascalTriangleLine3()
         {
             Assert.Equal(new int[] { 1, 2, 1 } , GeneratePascalTriangle(3));
