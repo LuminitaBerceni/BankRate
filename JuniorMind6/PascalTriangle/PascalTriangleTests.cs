@@ -14,7 +14,16 @@ namespace PascalTriangle
 
         int [] GeneratePascalTriangle (int line)
         {
-            return new int[] {0};
+            int[] result = new int[line];
+            result[0] = 1;
+            result[result.Length - 1] = 1;
+            if (line < 3) return result;
+            int[] previousLine = GeneratePascalTriangle(line - 1);
+            for (int i = 1; i < line - 1; i++)
+            {
+                result[i] = previousLine[i] + previousLine[i - 1];
+            }
+            return result;
         }
     }
 }
