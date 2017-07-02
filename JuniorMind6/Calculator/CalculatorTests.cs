@@ -7,8 +7,14 @@ namespace Calculator
     public class CalculatorTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CalculateExpressionWithOneOperator()
         {
+            Assert.AreEqual(12 , CalculateExpression("* 3 4"));
+        }
+
+        double CalculateExpression(string expression)
+        {
+            return 0;
         }
     }
 }
