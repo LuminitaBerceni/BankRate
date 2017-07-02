@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindAndReplace", "FindAndRe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PascalTriangle", "PascalTriangle\PascalTriangle.csproj", "{3B79B6B7-4E78-4B65-B9A5-88A3060C3D13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{87B20C15-3BC0-4A7F-B316-8D42BF31A1A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3B79B6B7-4E78-4B65-B9A5-88A3060C3D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B79B6B7-4E78-4B65-B9A5-88A3060C3D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B79B6B7-4E78-4B65-B9A5-88A3060C3D13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87B20C15-3BC0-4A7F-B316-8D42BF31A1A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87B20C15-3BC0-4A7F-B316-8D42BF31A1A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87B20C15-3BC0-4A7F-B316-8D42BF31A1A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87B20C15-3BC0-4A7F-B316-8D42BF31A1A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
