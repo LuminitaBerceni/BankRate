@@ -20,6 +20,13 @@ namespace Calculator
             Assert.AreEqual(4, CalculateExpression("* + 1 1 2", ref index));
         }
 
+        [TestMethod]
+        public void CalculateExpressionWithMoreOperators()
+        {
+            int index = 0;
+            Assert.AreEqual(1549.4166666666667, CalculateExpression("+ / * + 56 45 46 3 - 1 0.25", ref index));
+        }
+
         public double CalculateExpression(string expression, ref int index)
         {
             string[] elements = expression.Split(' ');
