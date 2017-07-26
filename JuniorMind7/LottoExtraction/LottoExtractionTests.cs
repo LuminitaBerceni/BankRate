@@ -15,7 +15,23 @@ namespace LottoExtraction
 
         int[] SortLottoNumbers(int[] numbers)
         {
-            return new int[6];
+            for (int i = 0; i < numbers.Length - 1; i++)
+            {
+                int minim = numbers[i];
+                int position = i;
+                for (int j = i + 1; j < numbers.Length; j++)
+                {
+                    if (numbers[j] < minim)
+                    {
+                        position = j;
+                        minim = numbers[j];
+                    }
+                }
+                numbers[position] = numbers[i];
+                numbers[i] = minim;
+            }
+            return numbers;
         }
+        
     }
 }
