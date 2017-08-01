@@ -7,19 +7,33 @@ namespace WordsSort
     public class WordsSortTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void SortTextWithTwoWords()
         {
+            var result = new WordAppearance[]
+            {
+                new WordAppearance("ana", 2),
+                new WordAppearance("si", 1)
+            };
+            CollectionAssert.AreEqual(result, FindAndSortWordsByAppearances("ana si ana"));
         }
 
         public struct WordAppearance
         {
             public string word;
-            public int appearance;
-            public WordAppearance(string word, int appearance)
+            public int appearances;
+            public WordAppearance(string word, int appearances)
             {
                 this.word = word;
-                this.appearance = appearance;
+                this.appearances = appearances;
             }
+        }
+
+        WordAppearance[] FindAndSortWordsByAppearances(string text)
+        {
+            return new WordAppearance[]
+            {
+                new WordAppearance("", 1),
+            };
         }
     }
 }
