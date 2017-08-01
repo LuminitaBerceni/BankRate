@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LottoExtraction", "LottoExt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepairCenter", "RepairCenter\RepairCenter.csproj", "{DAD27532-B772-45D8-A354-D6FE8085F786}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordsSort", "WordsSort\WordsSort.csproj", "{CF6E1034-B604-4432-9957-838CE0959A8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DAD27532-B772-45D8-A354-D6FE8085F786}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAD27532-B772-45D8-A354-D6FE8085F786}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAD27532-B772-45D8-A354-D6FE8085F786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6E1034-B604-4432-9957-838CE0959A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6E1034-B604-4432-9957-838CE0959A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6E1034-B604-4432-9957-838CE0959A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6E1034-B604-4432-9957-838CE0959A8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

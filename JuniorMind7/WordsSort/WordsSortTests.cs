@@ -10,5 +10,16 @@ namespace WordsSort
         public void TestMethod1()
         {
         }
+
+        public struct WordAppearance
+        {
+            public string word;
+            public int appearance;
+            public WordAppearance(string word, int appearance)
+            {
+                this.word = word;
+                this.appearance = appearance;
+            }
+        }
     }
 }
