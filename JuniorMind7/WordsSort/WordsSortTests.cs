@@ -17,6 +17,19 @@ namespace WordsSort
             CollectionAssert.AreEqual(result, FindAndSortWordsByAppearances("ana si ana"));
         }
 
+        [TestMethod]
+        public void SortTextWithFourWords()
+        {
+            var result = new WordAppearance[]
+            {
+                new WordAppearance("mere", 2),
+                new WordAppearance("pere", 1),
+                new WordAppearance("si", 1),
+                new WordAppearance("iar", 1)
+            };
+            CollectionAssert.AreEqual(result, FindAndSortWordsByAppearances("pere mere si iar mere"));
+        }
+
         public struct WordAppearance
         {
             public string word;
