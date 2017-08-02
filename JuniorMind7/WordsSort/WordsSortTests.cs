@@ -30,10 +30,45 @@ namespace WordsSort
 
         WordAppearance[] FindAndSortWordsByAppearances(string text)
         {
-            return new WordAppearance[]
+            WordAppearance[] result = new WordAppearance[0];
+            string[] words = text.Split(' ');
+            string[] temporarArray = new string[0];
+            while (words.Length > 0)
             {
-                new WordAppearance("", 1),
-            };
+                int count = 1;
+                for (int i = 1; i < words.Length; i++)
+                {
+                    if (words[0] == words[i])
+                        count++;
+                    else
+                    {
+                        Array.Resize(ref temporarArray, temporarArray.Length + 1);
+                        temporarArray[temporarArray.Length - 1] = words[i];
+                    }
+                }
+                Array.Resize(ref result, result.Length + 1);
+                result[result.Length - 1] = new WordAppearance(words[0], count);
+                words = temporarArray;
+                temporarArray = new string[0];
+            }
+            SortWords(ref result);
+            return result;
+        }
+
+        private void SortWords(ref WordAppearance[] result)
+        {
+            for (int i = 0; i < result.Length - 1; i++)
+            {
+                for (int j = i + 1; j < result.Length; j++)
+                {
+                    if (result[i].appearances < result[j].appearances)
+                    {
+                        WordAppearance temporar = result[i];
+                        result[i] = result[j];
+                        result[j] = temporar;
+                    }
+                }
+            }
         }
     }
 }
