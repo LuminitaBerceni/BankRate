@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordsSort", "WordsSort\Word
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CentralizedElections", "CentralizedElections\CentralizedElections.csproj", "{B9682270-E9CF-4C2D-94CC-D217C49D70F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classbook", "Classbook\Classbook.csproj", "{072CD0D7-E344-487E-AE56-690B2AB86CE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B9682270-E9CF-4C2D-94CC-D217C49D70F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9682270-E9CF-4C2D-94CC-D217C49D70F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9682270-E9CF-4C2D-94CC-D217C49D70F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{072CD0D7-E344-487E-AE56-690B2AB86CE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{072CD0D7-E344-487E-AE56-690B2AB86CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{072CD0D7-E344-487E-AE56-690B2AB86CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{072CD0D7-E344-487E-AE56-690B2AB86CE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
