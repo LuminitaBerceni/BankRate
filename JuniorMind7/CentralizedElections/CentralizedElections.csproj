@@ -49,8 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Candidate.cs" />
-    <Compile Include="CentralizedElectionsTests.cs" />
-    <Compile Include="PoolingStation.cs" />
+    <Compile Include="CandidateTests.cs" />
+    <Compile Include="PollingStation.cs" />
+    <Compile Include="PollingStationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
