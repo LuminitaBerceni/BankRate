@@ -34,9 +34,7 @@ namespace CentralizedElections
             central.AddVotes(local2);
             central.SortCandidatesByVotes();
 
-            //Candidate candidate;
-            //Assert.IsTrue(central.GetNext(out candidate));
-            Assert.AreEqual(expected, central);
+            Assert.AreEqual(expected.ToString(), central.ToString());
 
         }
     }

@@ -11,7 +11,6 @@ namespace CentralizedElections
     {
         private string poolingStationName;
         private Candidate[] candidates;
-        //private int index = 0;
 
         public PollingStation(string poolingStationName, Candidate[] candidates)
         {
@@ -33,64 +32,17 @@ namespace CentralizedElections
                 AddVotes(station);
         }
 
-        public bool GetNext(out Candidate candidate)
-        {
-            if (index < this.candidates.Length)
-            {
-                candidate = this.candidates[index++];
-                return true;
-            }
-            candidate = null;
-            return false;
-        }
-
         public void SortCandidatesByVotes()
         {
             for (int i = 0; i < candidates.Length - 1; i++)
             {
                 for (int j = i + 1; j > 0; j--)
                 {
-                    if (candidates[j - 1].HasMoreVotes(candidates[j]))
+                    if (candidates[j].HasMoreVotes(candidates[j - 1]))
                         Swap(ref candidates[j - 1], ref candidates[j]);
                 }
             }
         }
-
-        /*public void HeapSort()
-        {
-            int n = candidates.Length;
-            for (int i = n / 2 - 1; i >= 0; i--)
-            {
-                Heapify(n, i);
-            }
-            for (int i = n - 1; i >= 0; i--)
-            {
-                Swap(ref candidates[0], ref candidates[i]);
-
-                Heapify(i, 0);
-            }
-        }
-
-        private void Heapify(int n, int root)
-        {
-            int largest = root;
-            int left = 2 * root + 1;
-            int right = 2 * root + 2;
-
-            if (left < n && candidates[left].HasMoreVotes(candidates[largest]))
-            {
-                largest = left;
-            }
-            if (right < n && candidates[right].HasMoreVotes(candidates[largest]))
-            {
-                largest = right;
-            }
-            if (largest != root)
-            {
-                Swap(ref candidates[root], ref candidates[largest]);
-                Heapify(n, largest);
-            }
-        }*/
 
         private static void Swap(ref Candidate candidate1, ref Candidate candidate2)
         {
