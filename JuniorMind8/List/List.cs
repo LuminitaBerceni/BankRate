@@ -52,7 +52,8 @@ namespace List
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            listItems = null;
+            count = 0;
         }
 
         public bool Contains(T item)

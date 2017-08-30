@@ -35,5 +35,13 @@ namespace List
             var list = new List<string> { "a", "b" };
             Assert.AreEqual(2, list.Count);
         }
+
+        [TestMethod]
+        public void ClearTest()
+        {
+            var list = new List<string> { "a", "b" };
+            list.Clear();
+            Assert.AreEqual(0, list.Count);
+        }
     }
 }
