@@ -25,7 +25,13 @@ namespace List
             }
         }
 
-        public int Count => throw new NotImplementedException();
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
 
         public bool IsReadOnly => throw new NotImplementedException();
 

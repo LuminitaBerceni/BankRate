@@ -21,5 +21,19 @@ namespace List
             list.Add("c");
             Assert.AreEqual("c", list[2]);
         }
+
+        [TestMethod]
+        public void CountTest()
+        {
+            var list = new List<int> { 1, 2, 3, 4 };
+            Assert.AreEqual(4, list.Count);
+        }
+
+        [TestMethod]
+        public void CountStringTest()
+        {
+            var list = new List<string> { "a", "b" };
+            Assert.AreEqual(2, list.Count);
+        }
     }
 }
