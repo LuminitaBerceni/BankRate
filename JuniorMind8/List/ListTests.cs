@@ -43,5 +43,12 @@ namespace List
             list.Clear();
             Assert.AreEqual(0, list.Count);
         }
+
+        [TestMethod]
+        public void ContainsTest()
+        {
+            var list = new List<string> { "a", "b" };
+            Assert.IsTrue(list.Contains("b"));
+        }
     }
 }
