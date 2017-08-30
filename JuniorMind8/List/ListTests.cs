@@ -50,5 +50,12 @@ namespace List
             var list = new List<string> { "a", "b" };
             Assert.IsTrue(list.Contains("b"));
         }
+
+        [TestMethod]
+        public void IndexOfTest()
+        {
+            var list = new List<string> { "a", "b" };
+            Assert.AreEqual(1, list.IndexOf("b"));
+        }
     }
 }

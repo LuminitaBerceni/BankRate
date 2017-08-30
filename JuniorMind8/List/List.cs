@@ -58,7 +58,7 @@ namespace List
 
         public bool Contains(T item)
         {
-            return (Array.IndexOf(listItems, item) == -1) ? false : true;
+            return (IndexOf(item) == -1) ? false : true;
         }
 
         public void CopyTo(T[] array, int arrayIndex)
@@ -73,7 +73,7 @@ namespace List
 
         public int IndexOf(T item)
         {
-            throw new NotImplementedException();
+            return Array.IndexOf(listItems, item);
         }
 
         public void Insert(int index, T item)
