@@ -9,7 +9,21 @@ namespace List
 {
     class List<T> : IList<T>
     {
-        public T this[int index] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        private T[] listItems = new T[5];
+        private int count;
+
+        public T this[int index]
+        {
+            get
+            {
+                return listItems[index];
+            }
+
+            set
+            {
+                listItems[index] = value;
+            }
+        }
 
         public int Count => throw new NotImplementedException();
 
