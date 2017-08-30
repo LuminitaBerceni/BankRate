@@ -31,13 +31,17 @@ namespace List
 
         public void Add(T item)
         {
+            VerifySpace();
+            listItems[count] = item;
+            count++;
+        }
+
+        private void VerifySpace()
+        {
             if (count > listItems.Length)
             {
                 Array.Resize(ref listItems, listItems.Length * 2);
             }
-
-            listItems[count] = item;
-            count++;
         }
 
         public void Clear()
