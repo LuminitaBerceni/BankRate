@@ -30,6 +30,15 @@ namespace List
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void CountTestArgumentNull()
+        {
+            var list = new List<string> { };
+
+            var count = list.Count;
+        }
+
+        [TestMethod]
         public void CountStringTest()
         {
             var list = new List<string> { "a", "b" };

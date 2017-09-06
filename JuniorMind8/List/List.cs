@@ -29,6 +29,14 @@ namespace List
         {
             get
             {
+                if (count == 0)
+                {
+                    throw new ArgumentNullException("Source is null");
+                }
+                if (count > Int32.MaxValue)
+                {
+                    throw new OverflowException("The number of elements in source is larger than MaxValue.");
+                }
                 return count;
             }
         }
