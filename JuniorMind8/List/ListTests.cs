@@ -117,5 +117,21 @@ namespace List
             b.MoveNext();
             Assert.AreEqual(2, b.Current);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void InsertArgumentOutOfRangeExceptionTest()
+        {
+            var list = new List<int> { 1, 3, 4 };
+            list.Insert(5, 5);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void InsertArgumentOutOfRangeExceptionTest2()
+        {
+            var list = new List<int> { 1, 3, 4 };
+            list.Insert(-1, 0);
+        }
     }
 }
