@@ -41,7 +41,13 @@ namespace List
             }
         }
 
-        public bool IsReadOnly => throw new NotImplementedException();
+        public bool IsReadOnly
+        {
+            get
+            {
+                return false;
+            }
+        }
 
         public void Add(T item)
         {
