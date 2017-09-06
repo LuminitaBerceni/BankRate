@@ -72,7 +72,7 @@ namespace List
 
         public bool Contains(T item)
         {
-            return (IndexOf(item) == -1) ? false : true;
+            return (IndexOf(item) >= 0);
         }
 
         public void CopyTo(T[] array, int arrayIndex)
