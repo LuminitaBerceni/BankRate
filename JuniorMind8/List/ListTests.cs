@@ -105,5 +105,17 @@ namespace List
             integersList.CopyTo(array, 0);
             CollectionAssert.AreEqual(new int[] { 2, 3}, array);
         }
+
+        [TestMethod]
+        public void InsertTest()
+        {
+            var list = new List<int> { 1, 3, 4 };
+            list.Insert(1, 2);
+
+            var b = list.GetEnumerator();
+            b.MoveNext();
+            b.MoveNext();
+            Assert.AreEqual(2, b.Current);
+        }
     }
 }

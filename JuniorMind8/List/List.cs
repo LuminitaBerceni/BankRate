@@ -114,7 +114,31 @@ namespace List
 
         public void Insert(int index, T item)
         {
-            throw new NotImplementedException();
+            CheckIndex(index);
+            if (index == count)
+            {
+                Add(item);
+            }
+            ShiftRight(index);
+            listItems[index] = item;
+        }
+
+        private void ShiftRight(int index)
+        {
+            Array.Resize(ref listItems, listItems.Length + 1);
+            for (int i = listItems.Length - 2; i >= index; i--)
+            {
+                listItems[i] = listItems[i + 1];
+            }
+            count++;
+        }
+
+        private void CheckIndex(int index)
+        {
+            if (index < 0 || index > count)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
         }
 
         public bool Remove(T item)
