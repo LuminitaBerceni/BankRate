@@ -82,7 +82,10 @@ namespace List
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            foreach (var item in listItems)
+            {
+                yield return item;
+            }
         }
 
         public int IndexOf(T item)
