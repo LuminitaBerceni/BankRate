@@ -75,5 +75,35 @@ namespace List
             integersList.CopyTo(array, 1);
             CollectionAssert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, array);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void CopyToArgumentNullExceptionTest()
+        {
+            var integersList = new List<int>() { 2, 3 };
+            int[] array = new int[] {};
+            integersList.CopyTo(array, 1);
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, array);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void CopyToArgumentOutOfRangeExceptionTest()
+        {
+            var integersList = new List<int>() { 2, 3 };
+            int[] array = new int[] { 1, 7, 6, 4, 5 };
+            integersList.CopyTo(array, -1);
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, array);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void Copy_To_Argument_Exception()
+        {
+            var integersList = new List<int>() { 2, 3 };
+            int[] array = new int[1];
+            integersList.CopyTo(array, 0);
+            CollectionAssert.AreEqual(new int[] { 2, 3}, array);
+        }
     }
 }
