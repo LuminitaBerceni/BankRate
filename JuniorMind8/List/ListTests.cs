@@ -133,5 +133,13 @@ namespace List
             var list = new List<int> { 1, 3, 4 };
             list.Insert(-1, 0);
         }
+
+        [TestMethod]
+        public void RemoveAtTest()
+        {
+            var list = new List<int> { 1, 4, 2, 3 };
+            list.RemoveAt(1);
+            Assert.AreEqual(1, list.IndexOf(2));
+        }
     }
 }

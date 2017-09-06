@@ -148,7 +148,17 @@ namespace List
 
         public void RemoveAt(int index)
         {
-            throw new NotImplementedException();
+            CheckIndex(index);
+            ShiftLeft(index);
+        }
+
+        private void ShiftLeft(int index)
+        {
+            for (int i = index; i < listItems.Length - 1; i++)
+            {
+                listItems[i] = listItems[i + 1];
+            }
+            count--;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
