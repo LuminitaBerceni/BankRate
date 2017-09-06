@@ -87,7 +87,10 @@ namespace List
 
         public int IndexOf(T item)
         {
-            return Array.IndexOf(listItems, item);
+            for (int i = 0; i < count; i++)
+                if (listItems[i].Equals(item))
+                    return i;
+            return -1;
         }
 
         public void Insert(int index, T item)
