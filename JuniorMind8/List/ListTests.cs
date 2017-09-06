@@ -66,5 +66,14 @@ namespace List
             var list = new List<string> { "a", "b" };
             Assert.AreEqual(1, list.IndexOf("b"));
         }
+
+        [TestMethod]
+        public void CopyToTest()
+        {
+            var integersList = new List<int>() { 2, 3};
+            int[] array = new int[] { 1, 7, 6, 4, 5 };
+            integersList.CopyTo(array, 1);
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, array);
+        }
     }
 }

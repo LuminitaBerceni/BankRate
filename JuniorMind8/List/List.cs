@@ -77,7 +77,23 @@ namespace List
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            if (array.Length == 0)
+            {
+                throw new ArgumentNullException("Array is null");
+            }
+            if (arrayIndex < 0)
+            {
+                throw new ArgumentOutOfRangeException("ArrayIndex is less than 0");
+            }
+            if (array.Length - arrayIndex < count)
+            {
+                throw new ArgumentException(
+                    "The number of elements in the source List<T> is greater than the available space from arrayIndex to the end of the destination array");
+            }
+            for (int i = 0; i< count; i++)
+            {
+                array[i+ arrayIndex] = listItems[i];
+            }
         }
 
         public IEnumerator<T> GetEnumerator()
