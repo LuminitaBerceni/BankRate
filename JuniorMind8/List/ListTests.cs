@@ -141,5 +141,21 @@ namespace List
             list.RemoveAt(1);
             Assert.AreEqual(1, list.IndexOf(2));
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void RemoveAtArgumentOutOfRangeExceptionTest()
+        {
+            var list = new List<int> { 1, 4, 2, 3 };
+            list.RemoveAt(5);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void RemoveAtArgumentOutOfRangeExceptionTest2()
+        {
+            var list = new List<int> { 1, 4, 2, 3 };
+            list.RemoveAt(-1);
+        }
     }
 }

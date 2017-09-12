@@ -77,6 +77,15 @@ namespace List
 
         public void CopyTo(T[] array, int arrayIndex)
         {
+            CheckArray(array, arrayIndex);
+            for (int i = 0; i < count; i++)
+            {
+                array[i + arrayIndex] = listItems[i];
+            }
+        }
+
+        private void CheckArray(T[] array, int arrayIndex)
+        {
             if (array.Length == 0)
             {
                 throw new ArgumentNullException("Array is null");
@@ -89,10 +98,6 @@ namespace List
             {
                 throw new ArgumentException(
                     "The number of elements in the source List<T> is greater than the available space from arrayIndex to the end of the destination array");
-            }
-            for (int i = 0; i< count; i++)
-            {
-                array[i+ arrayIndex] = listItems[i];
             }
         }
 
