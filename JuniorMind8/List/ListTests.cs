@@ -157,5 +157,16 @@ namespace List
             var list = new List<int> { 1, 4, 2, 3 };
             list.RemoveAt(-1);
         }
+
+        [TestMethod]
+        public void RemoveTest()
+        {
+            var list = new List<int> { 1, 4, 2, 3 };
+
+            list.Remove(1);
+
+            Assert.IsFalse(list.Contains(1));
+            Assert.AreEqual(0, list.IndexOf(4));
+        }
     }
 }

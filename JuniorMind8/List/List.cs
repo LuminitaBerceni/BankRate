@@ -148,7 +148,14 @@ namespace List
 
         public bool Remove(T item)
         {
-            throw new NotImplementedException();
+            var indexOfItem = IndexOf(item);
+
+            if (indexOfItem > -1)
+            {
+                RemoveAt(indexOfItem);
+                return true;
+            }
+            return true;
         }
 
         public void RemoveAt(int index)
