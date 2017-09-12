@@ -46,6 +46,7 @@ namespace List
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void ClearTest()
         {
             var list = new List<string> { "a", "b" };
