@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="LinkedList.cs" />
     <Compile Include="LinkedListTests.cs" />
+    <Compile Include="Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
